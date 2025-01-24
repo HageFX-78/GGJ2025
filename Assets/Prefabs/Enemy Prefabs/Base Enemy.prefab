@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1777866459735250869}
   - component: {fileID: 6344441054754589961}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Base Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6453b1df10fe994b9aafc3ba35ff51d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4374674057398275899}
-  combineSizeMultiplier: 0.7
+  enemyPoolList: {fileID: 11400000, guid: fdb85ef23c299614cb779f9cc518b10d, type: 2}
+  combineSizeMultiplier: 0.1
 --- !u!114 &6344441054754589961
 MonoBehaviour:
   m_ObjectHideFlags: 0
