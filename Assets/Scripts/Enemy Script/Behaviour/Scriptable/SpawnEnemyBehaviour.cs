@@ -5,9 +5,9 @@ namespace Enemy_Script.Behaviour.Scriptable
     [CreateAssetMenu(fileName = "SpawnEnemyBehaviour", menuName = "BehaviourScriptables/SpawnEnemyBehaviour", order = 4)]
     public class SpawnEnemyBehaviour : BehaviourScriptable
     {
-        public override void Setup(Enemy enemyRef, GameObject target)
+        public override void Setup(Enemy attachedEnemy, GameObject target)
         {
-            base.Setup(enemyRef, target);
+            base.Setup(attachedEnemy, target);
         }
 
         public override void Start()

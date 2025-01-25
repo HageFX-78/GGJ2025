@@ -13,12 +13,12 @@ public class BehaviourScriptable : ScriptableObject
 
     protected Coroutine timerCoroutine = null;
     
-    public virtual void Setup(Enemy enemyRef, GameObject target)
+    public virtual void Setup(Enemy attachedEnemy, GameObject target)
     {
-        BehaviourComponentRef = enemyRef.behaviourComponent;
-        EnemyMovementRef = enemyRef.movementComponent;
+        BehaviourComponentRef = attachedEnemy.behaviourComponent;
+        EnemyMovementRef = attachedEnemy.movementComponent;
         TargetPlayerRef = target;
-        EnemyVisual = enemyRef.visualChild;
+        EnemyVisual = attachedEnemy.visualChild;
         
         if (TargetPlayerRef == null)
         {

@@ -38,7 +38,13 @@ public class Enemy : MonoBehaviour
     {
         gameObject.transform.localScale = new Vector3(enemySize, enemySize, enemySize);
     }
-    
+
+    public void SetupEnemy(float newSize)
+    {
+        enemySize = newSize;
+        gameObject.transform.localScale = new Vector3(enemySize, enemySize, enemySize);
+    }
+
     public float GetPriorityID()
     {
         return priorityID;
