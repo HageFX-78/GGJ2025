@@ -27,7 +27,8 @@ public class EnemyEffect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DisplayHitParticles(Vector3.left);
-        Explode();
+            DisplayDeathSequence();
+            //SquishStretch();
 
         }
     }
@@ -58,6 +59,14 @@ public class EnemyEffect : MonoBehaviour
         _HitParticleSystem.Play();
     }
 
+    public void SquishStretch()
+    {
+        _Sprite.transform.DOScale(new Vector3(1.2f, 0.8f, 1.2f), 0.1f).SetEase(Ease.InOutBounce).OnComplete(() =>
+        {
+            _Sprite.transform.DOScale(Vector3.one, 0.1f).SetEase(Ease.InOutBounce);
+        });
+    }
+
 
     [ContextMenu("MergeSequence")] // Test only
     public void MergeSequence()
@@ -71,6 +80,7 @@ public class EnemyEffect : MonoBehaviour
     /// <param name="mergeToPosition"></param>
     public void MergeInto(Vector3 mergeToPosition)
     {
+        SquishStretch();
         _Sprite.transform.DOMove(mergeToPosition, 0.5f).SetEase(Ease.InCubic);
     }
     public void MergeGrowSequence(Vector3 finalScale)
