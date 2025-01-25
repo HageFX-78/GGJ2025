@@ -11,7 +11,6 @@ public class EnemyEffect : MonoBehaviour
     [SerializeField] private float _inflateScale = 1.2f;
     void Start()
     {
-        Explode();
     }
 
     void OnDisable()
@@ -28,6 +27,8 @@ public class EnemyEffect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DisplayHitParticles(Vector3.left);
+        Explode();
+
         }
     }
 #endif
