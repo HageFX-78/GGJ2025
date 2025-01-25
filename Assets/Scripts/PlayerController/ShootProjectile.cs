@@ -9,6 +9,7 @@ public class ShootProjectile : MonoBehaviour
     public float fireRate = 5f;
 
     [SerializeField]private InputActionReference attackBtn;
+    [SerializeField] private InputActionReference altAttackBtn;
     private float nextFireTime = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update()
@@ -21,6 +22,11 @@ public class ShootProjectile : MonoBehaviour
                 nextFireTime = Time.time + fireRate;
             }
            
+        }
+
+        if (altAttackBtn.action.IsPressed())
+        {
+
         }
     }
 
