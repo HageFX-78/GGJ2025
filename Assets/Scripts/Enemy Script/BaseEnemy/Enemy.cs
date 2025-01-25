@@ -66,7 +66,6 @@ public class Enemy : MonoBehaviour
         //print(canCombine);
     }
 
-
     public float GetPriorityID()
     {
         return priorityID;

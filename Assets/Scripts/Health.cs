@@ -10,7 +10,11 @@ public class Health : MonoBehaviour, IDamageable, IHeal
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            if(gameObject.tag == "Enemy")
+            {
+                gameObject.SetActive(false);
+            }
+            // NEED CHANGE BECAUSE ENEMY DOESNT DESTROY
         }
     }
 
