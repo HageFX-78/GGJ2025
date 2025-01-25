@@ -23,9 +23,10 @@ public class PlayerInfoUI : MonoBehaviour
             _altFire.value += Time.deltaTime *  (1 / altFireCD);
         }
 
-        if (Input.GetMouseButtonDown(0) && altFireReady)
+        if (Input.GetMouseButtonDown(0) && altFireReady) //Move to player fire later and add functionality 
         {
             _altFire.value = 0; 
+            EventManager.FireEvent(GameEvents.IncreasePopCount, true);
         }
     }
 }
