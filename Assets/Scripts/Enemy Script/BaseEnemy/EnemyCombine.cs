@@ -24,25 +24,24 @@ public class EnemyCombine : MonoBehaviour, ICombineable
         if (gameObject.GetComponent<Enemy>().isActiveAndEnabled)
         {
             if (newEnemySize < 2)
-        {
-            newEnemy = enemyObjectPool[0].GetPooledEnemy(transform.position, transform.rotation);
-        }
-        else
-        {
-            newEnemy = enemyObjectPool[1].GetPooledEnemy(transform.position, transform.rotation);
-        }
+            {
+               //newEnemy = enemyObjectPool[0].GetPooledEnemy(transform.position, transform.rotation);
+            }
+            else
+            {
+                //newEnemy = enemyObjectPool[1].GetPooledEnemy(transform.position, transform.rotation);
+            }
 
         }
        
-
         //newEnemy.GetComponent<Enemy>().enemySize = newEnemySize;
         //newEnemy.GetComponent<Enemy>().SetupEnemy();
 
-        newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
-        newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
+        //newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
+        //newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
 
         Debug.Log(newEnemySize);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
 
     }
 
