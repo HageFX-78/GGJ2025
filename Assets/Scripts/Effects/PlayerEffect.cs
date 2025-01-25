@@ -8,6 +8,11 @@ public class PlayerEffect : MonoBehaviour
     [SerializeField] private ParticleSystem _HitParticle;
     private Coroutine movementCoroutine;
     private bool isMoving = false;
+    private Vector3 originalScale;
+    void Start()
+    {
+        originalScale = _Sprite.transform.localScale;
+    }
 
     void ShootEffect()
     {
@@ -16,9 +21,9 @@ public class PlayerEffect : MonoBehaviour
 
     Tweener SquishStretch()
     {
-        return _Sprite.transform.DOScale(new Vector3(1.2f, 0.8f, 1.2f), 0.15f).SetEase(Ease.InOutBounce).OnComplete(() =>
+        return _Sprite.transform.DOScale(new Vector3(originalScale.x * 1.2f, originalScale.y * 0.8f, originalScale.z * 1.2f), 0.15f).SetEase(Ease.InOutBounce).OnComplete(() =>
         {
-            _Sprite.transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.InOutBounce);
+            _Sprite.transform.DOScale(originalScale, 0.15f).SetEase(Ease.InOutBounce);
         });
     }
 
@@ -56,6 +61,6 @@ public class PlayerEffect : MonoBehaviour
             yield return new WaitForSeconds(0.3f);
         }
         movementCoroutine = null;
-        _Sprite.transform.DOScale(Vector3.one, 0.1f).SetEase(Ease.InOutBounce);
+        _Sprite.transform.DOScale(originalScale, 0.1f).SetEase(Ease.InOutBounce);
     }
 }

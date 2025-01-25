@@ -85,4 +85,15 @@ public class Enemy : MonoBehaviour
         behaviourComponent = GetComponent<BehaviourComponent>();
         visualChild = GetComponentInChildren<SpriteRenderer>().gameObject;
     }
+
+    public void OnColliderEnter2D(Collider2D collision)
+    {
+        Debug.Log("Collision");
+        // If player apply health dmg and die
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<Health>().Damage(gameObject.GetComponent<Health>().health);
+            gameObject.GetComponent<Health>().Damage(999); // Suicide
+        }
+    }
 }
