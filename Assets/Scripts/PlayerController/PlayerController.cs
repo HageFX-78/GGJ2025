@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = moveInput * moveSpeed;
         }
-
-        
     }
 
     public void Move(InputAction.CallbackContext context)

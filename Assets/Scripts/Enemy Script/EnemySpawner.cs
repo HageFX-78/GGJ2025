@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
     public EnemyPoolList enemyPoolList;
     private GameObject player;
     
-    public GameManager GameManager => GameManager.Instance;
+    public GameManager gameManager;
 
     public float spawnRangeMultiplier = 5f;
     
@@ -47,9 +47,9 @@ public class EnemySpawner : MonoBehaviour
             return spawnAmount; 
         }
     }
-    
     void Start()
     {
+        gameManager = GameManager.Instance;
         player = GameObject.FindWithTag("Player");
 
         spawnRate = spawnRate * 50;
@@ -59,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (enableSpawning && !GameManager.IS_GAMEOVER)
+        if(enableSpawning && !gameManager.IS_GAMEOVER)
         {
             SpawnEnemies();
         }
@@ -73,7 +73,7 @@ public class EnemySpawner : MonoBehaviour
             SetEnemyChance();
             Spawn();
             spawnTimer = spawnRate;
-            GameManager.currentWave++;
+            gameManager.currentWave++;
         }
         else
         {
