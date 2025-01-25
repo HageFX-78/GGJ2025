@@ -37,13 +37,10 @@ public class EnemyCombine : MonoBehaviour, ICombineable
         }
        
 
-
         //newEnemy.GetComponent<Enemy>().enemySize = newEnemySize;
         //newEnemy.GetComponent<Enemy>().SetupEnemy();
 
-
-        Vector3 newSize = new Vector3(newEnemySize, newEnemySize, newEnemySize);
-        newEnemy.GetComponent<Enemy>().SetupEnemy(newSize);
+        newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
         newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
 
         //newEnemy.GetComponent<Enemy>().SetSize(oldSize, newSize);
