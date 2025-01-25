@@ -9,19 +9,6 @@ public class PlayerEffect : MonoBehaviour
     private Coroutine movementCoroutine;
     private bool isMoving = false;
 
-    public void Update()
-    {
-        if(Input.GetKey(KeyCode.Space))
-        {
-            ShootEffect();
-        }
-        else if(Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            HitEffect();
-        }
-        MovementSquishStretch();
-    }
-
     void ShootEffect()
     {
         EventManager.FireEvent(GameEvents.OnCallCamShake, ECameraProfile.PlayerShoot);
@@ -35,7 +22,7 @@ public class PlayerEffect : MonoBehaviour
         });
     }
 
-    void HitEffect()
+    public void HitEffect()
     {
         SquishStretch();
         _HitParticle.Play();
@@ -45,9 +32,9 @@ public class PlayerEffect : MonoBehaviour
     }
 
     // Suishstretch when moving but return to normal when stop
-    void MovementSquishStretch()
+    public void MovementSquishStretch(bool hasVelocity)
     {
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if(hasVelocity)
         {
             isMoving = true;
             if(movementCoroutine == null)

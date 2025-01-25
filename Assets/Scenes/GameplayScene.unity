@@ -792,13 +792,17 @@ MonoBehaviour:
   _shakeProfiles:
   - profileID: 0
     shakeDuration: 0.6
-    amplitudeGain: 2
+    amplitudeGain: 1
     frequencyGain: 30
   - profileID: 1
+    shakeDuration: 0.6
+    amplitudeGain: 3
+    frequencyGain: 35
+  - profileID: 2
     shakeDuration: 0.3
     amplitudeGain: 1
     frequencyGain: 5
-  - profileID: 2
+  - profileID: 3
     shakeDuration: 0.3
     amplitudeGain: 0.5
     frequencyGain: 5
@@ -837,6 +841,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7153543931737018965, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7381994677257046100, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -899,6 +907,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8925326343338142508, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2031512581}
+    - targetCorrespondingSourceObject: {fileID: 8925326343338142508, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2031512589}
   m_SourcePrefab: {fileID: 100100000, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
 --- !u!1 &1923698995
 GameObject:
@@ -1003,6 +1014,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Sprite: {fileID: 8925326342394220713}
   _HitParticle: {fileID: 1690898601}
+--- !u!58 &2031512589
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031512572}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1001 &2078338944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1013,15 +1060,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1430331764979491268, guid: 5851634a1fd3942458f8d12993a47956, type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1430331764979491268, guid: 5851634a1fd3942458f8d12993a47956, type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1430331764979491268, guid: 5851634a1fd3942458f8d12993a47956, type: 3}
       propertyPath: m_LocalScale.z
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1430331764979491268, guid: 5851634a1fd3942458f8d12993a47956, type: 3}
       propertyPath: m_LocalPosition.x

@@ -9,8 +9,13 @@ public class EnemyEffect : MonoBehaviour
     [SerializeField] private GameObject _HitParticlePivot;
     [SerializeField] private ParticleSystem _HitParticleSystem;
     [SerializeField] private float _inflateScale = 1.2f;
+
+    private ParticleSystem.MainModule _fizzParticleMain;
+    private ParticleSystem.ShapeModule _fizzParticleShape;
     void Start()
     {
+        _fizzParticleMain = _FizzParticle.GetComponent<ParticleSystem>().main;
+        _fizzParticleShape = _FizzParticle.GetComponent<ParticleSystem>().shape;
     }
 
     void OnDisable()
@@ -36,15 +41,17 @@ public class EnemyEffect : MonoBehaviour
 
     public void DisplayDeathSequence()
     {
+        _fizzParticleMain.startSize = new ParticleSystem.MinMaxCurve(0.3f * transform.localScale.x, 0.5f * transform.localScale.x);
+        _fizzParticleShape.radius = 0.5f * transform.localScale.x;
         _FizzParticle.SetActive(true);
-        _Sprite.transform.DOScale(transform.localScale * _inflateScale, 1f).SetEase(Ease.OutBounce);
-        _Sprite.transform.DOShakePosition(1f, 0.2f, 50, 90, false, true).OnComplete(Explode);
+        _Sprite.transform.DOScale(Vector3.one * _inflateScale, 1f).SetEase(Ease.OutBounce);
+        _Sprite.transform.DOShakePosition(1f, 0.2f, 50, 90, false, true).OnComplete(()=>Explode(true));
     }
 
     // INstant explode if needed
-    public void Explode()
+    public void Explode(bool isBig)
     {
-        EventManager.FireEvent(GameEvents.OnCallCamShake, ECameraProfile.EnemyPop);
+        EventManager.FireEvent(GameEvents.OnCallCamShake,isBig?ECameraProfile.EnemyBigPop: ECameraProfile.EnemyPop);
         _ExplodeParticle.SetActive(true);
         _Sprite.SetActive(false);
 

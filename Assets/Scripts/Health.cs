@@ -3,6 +3,7 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamageable, IHeal
 {
     public float health = 1;
+    private bool isDead = false;
 
     public void Damage(float healthDamage)
     {
@@ -15,9 +16,21 @@ public class Health : MonoBehaviour, IDamageable, IHeal
 
         if (gameObject.tag == "Enemy")
         {
-            if (health <= 0)
+            if (health <= 0 && !isDead)
             {
-                gameObject.SetActive(false);
+                isDead = true;
+                gameObject.GetComponent<Enemy>().canCombine = false;
+                if (gameObject.GetComponent<Enemy>().enemySize > 2)
+                {
+                    gameObject.GetComponent<EnemyEffect>().DisplayDeathSequence();
+                    Invoke("InvokeDeath", 2.0f);
+                }
+                else
+                {
+                    gameObject.GetComponent<EnemyEffect>().Explode(false);
+                    Invoke("InvokeDeath", 1.0f);
+                }
+                
             }
             else
             {
@@ -25,6 +38,12 @@ public class Health : MonoBehaviour, IDamageable, IHeal
             }
         }
 
+    }
+
+    public void InvokeDeath()
+    {
+        isDead = false;
+        gameObject.SetActive(false);
     }
 
     public void SetHealth(float totalHealth)
