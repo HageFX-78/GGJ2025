@@ -241,18 +241,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8235302233767269869, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
-      propertyPath: projectile2
-      value: 
-      objectReference: {fileID: 8308761087185327804, guid: 827fcb16b7431ec4e8d77fd2a8c424d8, type: 3}
-    - target: {fileID: 8235302233767269869, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
-      propertyPath: altAttackBtn
-      value: 
-      objectReference: {fileID: -4686885534652759174, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-    - target: {fileID: 8235302233767269869, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
-      propertyPath: projectile2Speed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8925326343338142508, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       propertyPath: m_Name
       value: Player

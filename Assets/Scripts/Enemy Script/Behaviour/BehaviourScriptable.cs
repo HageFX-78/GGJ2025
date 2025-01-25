@@ -41,9 +41,9 @@ public class BehaviourScriptable : ScriptableObject
         
     }
 
-    protected void StartTimer(Action callback, float seconds, bool isRepeating)
+    protected void StartTimer(Action callback, float intervalSeconds, bool isRepeating)
     {
-        timerCoroutine = BehaviourComponentRef.StartCoroutine(TimerCoroutine(callback, seconds, isRepeating));
+        timerCoroutine = BehaviourComponentRef.StartCoroutine(TimerCoroutine(callback, intervalSeconds, isRepeating));
     }
     
     private IEnumerator TimerCoroutine(Action callback, float seconds, bool isRepeating)

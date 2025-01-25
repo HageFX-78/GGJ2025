@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -19,7 +20,9 @@ public class DashBehaviour : BehaviourScriptable
     [SerializeField] private bool snapping = false;
     [SerializeField] private bool fadeOut = true;
     [SerializeField] private ShakeRandomnessMode shakeMode = ShakeRandomnessMode.Full;
-    
+
+    public Action<float> OnDash = null;
+        
     public override void Setup(Enemy attachedEnemy, GameObject target)
     {
         base.Setup(attachedEnemy, target);
@@ -57,5 +60,7 @@ public class DashBehaviour : BehaviourScriptable
         var directionalForce = EnemyMovementRef.CalculateDirectionalForce(EnemyMovementRef.cachedDirectionToPlayer);
         EnemyMovementRef.enemyRigidBody.AddForce(
             new Vector2(directionalForce.movementX * dashForce, directionalForce.movementY * dashForce), dashForceMode);
+        
+        OnDash?.Invoke(dashDuration);
     }
 }

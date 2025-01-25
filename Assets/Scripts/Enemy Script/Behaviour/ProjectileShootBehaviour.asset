@@ -9,18 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec7ecc3d9ddb78c4391af5ee030810b8, type: 3}
-  m_Name: DashBehaviour
+  m_Script: {fileID: 11500000, guid: 6b58a38234de40368d0899319a434dac, type: 3}
+  m_Name: ProjectileShootBehaviour
   m_EditorClassIdentifier: 
-  priority: 2
-  castTime: 2
-  dashForce: 1
-  dashDuration: 1.2
-  dashCooldown: 5
-  dashForceMode: 1
-  strength: 0.2
-  vibrato: 20
-  randomness: 45
-  snapping: 0
-  fadeOut: 0
-  shakeMode: 0
+  priority: 0
+  projectilePrefab: {fileID: 6215874621632528849, guid: 9f956b0fbc47ea149ba56e8b63946646, type: 3}

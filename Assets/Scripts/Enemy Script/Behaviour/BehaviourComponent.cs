@@ -9,6 +9,7 @@ public class BehaviourComponent : MonoBehaviour
     
     private GameObject targetPlayer = null;
     private Enemy attachedEnemy = null;
+    
     public void SetupBehaviours(Enemy enemyRef, GameObject target)
     {
         //cache target player and sort by priority before setup
@@ -50,4 +51,10 @@ public class BehaviourComponent : MonoBehaviour
     {
         behaviours = behaviours.OrderBy(x=> x.priority).ToList();
     }
+
+    public T GetBehaviourScriptable<T>() where T : BehaviourScriptable
+    {
+        return (T)behaviours.FirstOrDefault(x => x.GetType() == typeof(T));
+    }
+    
 }
