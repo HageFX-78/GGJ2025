@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1328832764901670881, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: enemyAcceleration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1777866459735250869, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: combineSizeMultiplier
       value: 0.1

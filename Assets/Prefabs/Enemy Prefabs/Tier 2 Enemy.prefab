@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1328832764901670881, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: enemyAcceleration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1777866459735250869, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: combineSizeMultiplier
       value: 0.1
@@ -28,6 +32,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tier 2 Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5039572840146029531, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039572840146029531, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039572840146029531, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615970060168066394, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: behaviours.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615970060168066394, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: 'behaviours.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 80f46ed7aaf29ab4caab4fd5f1eafff6, type: 2}
     - target: {fileID: 8426939491256329901, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
