@@ -3,5 +3,5 @@
 /// </summary>
 public enum GameEvents
 {
-    OnTest
+    OnCallCamShake,
 }

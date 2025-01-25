@@ -277,8 +277,8 @@ public class AudioManagerEditor : Editor
         shouldRemoveOldAudio = GUILayout.Toggle(shouldRemoveOldAudio, "Remove old audio files when refreshing");
         EditorGUILayout.Space();
 
-        // Button to generate AEnum file
-        DrawGenerateAEnum(am);
+        // Button to generate EAudio file
+        DrawGenerateEAudio(am);
 
 
     }
@@ -394,18 +394,30 @@ public class AudioManagerEditor : Editor
         }
     }
 #endregion
-#region Generate AEnum file
-    public void DrawGenerateAEnum(AudioManager am)
+#region Generate EAudio file
+    public void DrawGenerateEAudio(AudioManager am)
     {
         EditorGUILayout.HelpBox("Optional feature to generate an Enum file you can use in place of string names when playing audio. Will reload domain and is not fully tested.", MessageType.Info);
         GUI.backgroundColor = Color.cyan;
-        if (GUILayout.Button("Generate AEnum file", GUILayout.Height(40)))
+        if (GUILayout.Button("Generate New EAudio file", GUILayout.Height(40)))
         {
-             // Get the current directory of the script
+             GenerateNewEnumFile(am);
+        }
+        if (GUILayout.Button("Regenerate EAudio file", GUILayout.Height(40)))
+        {
+             //RegenerateEnumFile(am);
+             AudioManager.C_Debug("Regenerate EAudio file is disabled for now.");
+        }
+        GUI.backgroundColor = oldColor;
+    }
+
+    private void GenerateNewEnumFile(AudioManager am)
+    {
+        // Get the current directory of the script
             string scriptPath = Path.GetDirectoryName(AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(this)));
             string targetDirectory = Path.Combine(scriptPath, "_Generated");
 
-            string enumFileContent = "public enum AEnum\n{\n";
+            string enumFileContent = "\n///////////////////////\n//\tGenerated script by AudioManager, do not edit!\n///////////////////////\n\npublic enum EAudio\n{\n";
             // Add all BGM names
             foreach (Sound bgm in am.BGM)
             {
@@ -444,13 +456,93 @@ public class AudioManagerEditor : Editor
                 Directory.CreateDirectory(targetDirectory); // Change this line
             }
 
-            string fileName = "AEnum.cs"; // Specify the file name
+            string fileName = "EAudio.cs"; // Specify the file name
             string filePath = Path.Combine(targetDirectory, fileName);
 
             File.WriteAllText(filePath, enumFileContent);
             AssetDatabase.Refresh();
+    }
+    private void RegenerateEnumFile(AudioManager am)
+    {
+        // Get the current directory of the script
+        string scriptPath = Path.GetDirectoryName(AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(this)));
+        string targetDirectory = Path.Combine(scriptPath, "_Generated");
+
+        string fileName = "EAudio.cs";
+        string filePath = Path.Combine(targetDirectory, fileName);
+
+        HashSet<string> currentEnumNames = new HashSet<string>(); // Current valid enum names
+        HashSet<string> existingEnumNames = new HashSet<string>(); // Names from the existing file
+
+        // Collect all valid names from the AudioManager
+        foreach (Sound bgm in am.BGM)
+        {
+            if (EnumHelper.TryMakeStringEnumCompatible(bgm.name, out string enumName))
+            {
+                currentEnumNames.Add(enumName);
+            }
         }
-        GUI.backgroundColor = oldColor;
+
+        foreach (AudioGroupWrapper group in am.SFX)
+        {
+            foreach (Sound sfx in group.groupAudio)
+            {
+                if (EnumHelper.TryMakeStringEnumCompatible(sfx.name, out string enumName))
+                {
+                    currentEnumNames.Add(enumName);
+                }
+            }
+        }
+
+        // Read existing enum values if the file exists
+        if (File.Exists(filePath))
+        {
+            string[] lines = File.ReadAllLines(filePath);
+            foreach (string line in lines)
+            {
+                if (line.Trim().StartsWith("//") || !line.Contains(",")) continue; // Skip comments or invalid lines
+                string trimmedLine = line.Trim().TrimEnd(',');
+                existingEnumNames.Add(trimmedLine);
+            }
+        }
+
+        // Determine which enums to keep
+        HashSet<string> finalEnumNames = new HashSet<string>(currentEnumNames); // Start with valid names
+        finalEnumNames.IntersectWith(existingEnumNames); // Retain only those still in use
+
+        // Add new enum names
+        foreach (string newName in currentEnumNames)
+        {
+            if (!existingEnumNames.Contains(newName))
+            {
+                finalEnumNames.Add(newName);
+            }
+        }
+
+        // Generate the content for the enum file
+        string enumFileContent = "\n///////////////////////\n//\tGenerated script by AudioManager, do not edit!\n///////////////////////\n\npublic enum EAudio\n{\n";
+
+        // Start enum declaration
+        enumFileContent += "public enum EAudio\n{\n";
+
+        // Add final enums
+        foreach (string name in finalEnumNames)
+        {
+            enumFileContent += $"\t{name},\n";
+        }
+
+        // Close the enum declaration
+        enumFileContent += "}\n";
+
+        // Ensure the directory exists
+        if (!Directory.Exists(targetDirectory))
+        {
+            Directory.CreateDirectory(targetDirectory);
+        }
+
+        // Write the updated file
+        File.WriteAllText(filePath, enumFileContent);
+        AssetDatabase.Refresh();
     }
 #endregion
 

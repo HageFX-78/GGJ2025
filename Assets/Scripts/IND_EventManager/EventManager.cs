@@ -24,10 +24,6 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        ClearAllEvents();
-    }
 #region  Event with parameters
     public static void ConnectEvent(GameEvents eventName, Action<object> listener)
     {

@@ -64,7 +64,7 @@ public class Audio_3DOneShot : MonoBehaviour
     /// Play given sound by enum
     /// </summary>
     /// <param name="soundName"></param>
-    public void PlaySound(AEnum soundName, bool hasPitchVariance = false)
+    public void PlaySound(EAudio soundName, bool hasPitchVariance = false)
     {
         AudioClip clip = AudioManager.GetAudioClip(soundName);
         if(clip == null)

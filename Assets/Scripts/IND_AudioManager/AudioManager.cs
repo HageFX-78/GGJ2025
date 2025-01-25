@@ -199,7 +199,7 @@ public class AudioManager : MonoBehaviour
         }
         return instance.audioDictionary[name].clip;
     }
-    public static AudioClip GetAudioClip(AEnum enumName)
+    public static AudioClip GetAudioClip(EAudio enumName)
     {
         if(InstanceIsNull()) return null;
         if (!instance.audioDictionary.ContainsKey(enumName.ToString()))
@@ -301,7 +301,7 @@ public class AudioManager : MonoBehaviour
         return instance.bgmSource;
         
     }
-    public static AudioSource PlayBGM(AEnum enumName)
+    public static AudioSource PlayBGM(EAudio enumName)
     {
         return PlayBGM(enumName.ToString());
     }
@@ -322,7 +322,7 @@ public class AudioManager : MonoBehaviour
     {
         return _PlaySFXWithParams(name);
     }
-    public static AudioSource PlaySFX(AEnum enumName)
+    public static AudioSource PlaySFX(EAudio enumName)
     {
         return PlaySFX(enumName.ToString());
     }
@@ -332,7 +332,7 @@ public class AudioManager : MonoBehaviour
     {
         return _PlaySFXWithParams(name, pitchRange);
     }
-    public static AudioSource PlaySFXPitchVaried(AEnum enumName, float pitchRange = 0.1f)
+    public static AudioSource PlaySFXPitchVaried(EAudio enumName, float pitchRange = 0.1f)
     {
         return PlaySFXPitchVaried(enumName.ToString(), pitchRange);
     }

@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(AudioSource))]
 public class Audio_3DLoop : MonoBehaviour
 {
-    [field: SerializeField]  public AEnum movementSound {get; private set;}
+    [field: SerializeField]  public EAudio movementSound {get; private set;}
     public AudioMixerGroup sfxMixerGroup;
 
     [field: SerializeField] public AudioSource audioSource {get; private set;}
