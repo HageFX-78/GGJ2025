@@ -169,6 +169,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -647,7 +673,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ripple_0: -2001549890549242753
+      ripple_1: -5515243490845997731
+      ripple_10: -2703265152519499288
+      ripple_11: -1533473585837526725
+      ripple_12: 3488486040942826362
+      ripple_13: -7293030429250398520
+      ripple_14: 8873817904882354985
+      ripple_15: -1040812027098524857
+      ripple_16: 5608660167939647261
+      ripple_17: 8084725152663825615
+      ripple_18: 8459023662592177624
+      ripple_19: -3922652678975587466
+      ripple_2: -8971687091379179229
+      ripple_20: 2080241905373735685
+      ripple_3: 2727424213261008626
+      ripple_4: 7304194531925204606
+      ripple_5: 3352150210647711678
+      ripple_6: 675501569875432420
+      ripple_7: -6687204827729400600
+      ripple_8: -1952300521167680782
+      ripple_9: -4602976030435344579
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
