@@ -35,30 +35,38 @@ namespace Enemy_Script.Behaviour.Scriptable
         public override void OnDeath()
         {
             base.OnDeath();
-            
-            var dashBehaviour = BehaviourComponentRef?.GetBehaviourScriptable<DashBehaviour>();
-            if (dashBehaviour)
+
+            if (BehaviourComponentRef != null)
             {
-                dashBehaviour.OnDash -= SpawnTrail;
+                var dashBehaviour = BehaviourComponentRef.GetBehaviourScriptable<DashBehaviour>();
+                if (dashBehaviour)
+                {
+                    dashBehaviour.OnDash -= SpawnTrail;
+                }
             }
         }
 
         private void SpawnTrail(float dashDuration)
         {
-            var InverseDirection = -EnemyMovementRef.cachedDirectionToPlayer;
+            var inverseDirection = -EnemyMovementRef.GetDirectionToPlayerNormalized();
             var spawnInterval = dashDuration / spawnAmount;
             
-            BehaviourComponentRef.StartCoroutine(SpawnCoroutine(spawnInterval, spawnAmount, InverseDirection));
+            BehaviourComponentRef.StartCoroutine(SpawnCoroutine(spawnInterval, spawnAmount, inverseDirection));
         }
 
-        private IEnumerator SpawnCoroutine(float spawnInterval, float trailAmount, Vector2 InverseDirection)
+        private IEnumerator SpawnCoroutine(float spawnInterval, float trailAmount, Vector2 inverseDirection)
         {
             var currentSpawnCount = 0;
 
             while (currentSpawnCount < trailAmount)
             {
+                if (!EnemyMovementRef)
+                {
+                    yield break;
+                }
+                
                 Vector3 spawnedLocation = EnemyMovementRef.transform.position +
-                                          new Vector3(InverseDirection.x, InverseDirection.y) * spawnOffset;
+                                          new Vector3(inverseDirection.x, inverseDirection.y) * spawnOffset;
                 Instantiate(trailPrefab, spawnedLocation, Quaternion.identity);
                 currentSpawnCount++;
                 yield return new WaitForSeconds(spawnInterval);

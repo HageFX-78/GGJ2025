@@ -27,14 +27,30 @@ PrefabInstance:
     - target: {fileID: 5615970060168066394, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: 'behaviours.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: c022136300f949b42828751aff8f874c, type: 2}
+      objectReference: {fileID: 11400000, guid: 80f46ed7aaf29ab4caab4fd5f1eafff6, type: 2}
+    - target: {fileID: 5615970060168066394, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: 'behaviours.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7205e0f815d3d7646b5d45ce7666d580, type: 2}
+    - target: {fileID: 5615970060168066394, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: behavioursToAttach.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615970060168066394, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: 'behavioursToAttach.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 80f46ed7aaf29ab4caab4fd5f1eafff6, type: 2}
+    - target: {fileID: 5615970060168066394, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: 'behavioursToAttach.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7205e0f815d3d7646b5d45ce7666d580, type: 2}
     - target: {fileID: 8426939491256329901, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.96
       objectReference: {fileID: 0}
     - target: {fileID: 8426939491256329901, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.32
       objectReference: {fileID: 0}
     - target: {fileID: 8426939491256329901, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: m_LocalPosition.z

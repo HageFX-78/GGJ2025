@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class BehaviourComponent : MonoBehaviour
 {
-    public List<BehaviourScriptable> behaviours = new List<BehaviourScriptable>();
+    public List<BehaviourScriptable> behavioursToAttach = new List<BehaviourScriptable>();
     
+    private List<BehaviourScriptable> currentBehaviours = new List<BehaviourScriptable>();
     private GameObject targetPlayer = null;
     private Enemy attachedEnemy = null;
     
@@ -15,17 +16,19 @@ public class BehaviourComponent : MonoBehaviour
         //cache target player and sort by priority before setup
         attachedEnemy = enemyRef;
         targetPlayer = target;
-        SortBehavioursByPriority();
+
+        foreach (BehaviourScriptable behaviour in behavioursToAttach)
+        {
+            currentBehaviours.Add(Instantiate(behaviour));
+        }
         
-        foreach (BehaviourScriptable behaviour in behaviours)
+        SortBehavioursByPriority();
+        foreach (BehaviourScriptable behaviour in currentBehaviours)
         {
             behaviour.Setup(attachedEnemy, targetPlayer);
         }
-    }
-
-    public void Start()
-    {
-        foreach (BehaviourScriptable behaviour in behaviours)
+        
+        foreach (BehaviourScriptable behaviour in currentBehaviours)
         {
             behaviour.Start();
         }
@@ -33,7 +36,7 @@ public class BehaviourComponent : MonoBehaviour
 
     public void Update()
     {
-        foreach (BehaviourScriptable behaviour in behaviours)
+        foreach (BehaviourScriptable behaviour in currentBehaviours)
         {
             behaviour.Update();
         }
@@ -41,7 +44,7 @@ public class BehaviourComponent : MonoBehaviour
 
     public void OnDeath()
     {
-        foreach (BehaviourScriptable behaviour in behaviours)
+        foreach (BehaviourScriptable behaviour in currentBehaviours)
         {
             behaviour.OnDeath();
         }
@@ -49,12 +52,12 @@ public class BehaviourComponent : MonoBehaviour
 
     private void SortBehavioursByPriority()
     {
-        behaviours = behaviours.OrderBy(x=> x.priority).ToList();
+        currentBehaviours = currentBehaviours.OrderBy(x=> x.priority).ToList();
     }
 
     public T GetBehaviourScriptable<T>() where T : BehaviourScriptable
     {
-        return (T)behaviours.FirstOrDefault(x => x.GetType() == typeof(T));
+        return (T)currentBehaviours.FirstOrDefault(x => x.GetType() == typeof(T));
     }
     
 }

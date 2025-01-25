@@ -8,6 +8,7 @@ public class TestSpawnEnemy : MonoBehaviour
 
     void Start()
     {
+        enemySpawner.Spawn();
         if (mainCamera == null)
         {
             mainCamera = Camera.main; // Automatically find the main camera
@@ -18,7 +19,7 @@ public class TestSpawnEnemy : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // 0 is the left mouse button
         {
-            SpawnObjectAtMousePosition();
+            //SpawnObjectAtMousePosition();
         }
     }
 
