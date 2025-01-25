@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerInfoUI : MonoBehaviour
@@ -10,22 +9,30 @@ public class PlayerInfoUI : MonoBehaviour
     [SerializeField] Slider _playerHp;
     [SerializeField] Slider _altFire;
 
-    public static bool altFireReady = false;
-    [SerializeField] float altFireCD = 5;
+    float altFireCD;
+    private void Start()
+    {
+        EventManager.ConnectEvent(GameEvents.AltFireSetCD, SetAltFireCD);
+    }
+
     private void Update()
     {
         // _playerHp.value = playerCurrentHp / playerMaxHP
 
-        altFireReady = _altFire.value >= 1;
-
-        if (_altFire.value < 1 )
+        if (_altFire.value < 1)
         {
-            _altFire.value += Time.deltaTime *  (1 / altFireCD);
+            _altFire.value += Time.deltaTime * altFireCD;
         }
+    }
 
-        if (Input.GetMouseButtonDown(0) && altFireReady)
-        {
-            _altFire.value = 0; 
-        }
+    public void SetAltFireCD(object cd)
+    { 
+        _altFire.value = 0;
+        altFireCD = (float)cd;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.DisconnectEvent(GameEvents.AltFireSetCD, SetAltFireCD);
     }
 }

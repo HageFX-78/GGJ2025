@@ -10,15 +10,18 @@ public class PopCountUI : MonoBehaviour
     {
         _popCount = GetComponent<TextMeshProUGUI>();
         popCount = 0;
-    }
-
-    private void Update()
-    {
-        _popCount.text = popCount.ToString();
+        _popCount.text = "0";
+        EventManager.ConnectEvent(GameEvents.IncreasePopCount, IncreasePopCount);
     }
     
-    public static void IncreasePopCount() // probably want to change to event system after merge
-    { 
+    public void IncreasePopCount()
+    {
         popCount++;
+        _popCount.text = popCount.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.DisconnectEvent(GameEvents.IncreasePopCount, IncreasePopCount);
     }
 }
