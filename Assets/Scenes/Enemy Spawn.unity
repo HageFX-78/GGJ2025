@@ -302,11 +302,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPoolList: {fileID: 11400000, guid: fdb85ef23c299614cb779f9cc518b10d, type: 2}
   player: {fileID: 1830330297}
-  minSpawnAmount: 1
-  maxSpawnAmount: 2
+  minSpawnAmount: 5
+  maxSpawnAmount: 5
   minSpawnRange: 1.1
   maxSpawnRange: 1.5
   spawnRate: 5
+  isWaveModeEnabled: 1
+  enableSpawning: 1
 --- !u!1 &1830330297
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +498,7 @@ Transform:
   m_GameObject: {fileID: 1978947267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.6188866, y: -0.79792714, z: -0.04237618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
