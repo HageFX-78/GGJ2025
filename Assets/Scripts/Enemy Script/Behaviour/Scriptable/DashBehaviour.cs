@@ -20,9 +20,9 @@ public class DashBehaviour : BehaviourScriptable
     [SerializeField] private bool fadeOut = true;
     [SerializeField] private ShakeRandomnessMode shakeMode = ShakeRandomnessMode.Full;
     
-    public override void Setup(Enemy enemyRef, GameObject target)
+    public override void Setup(Enemy attachedEnemy, GameObject target)
     {
-        base.Setup(enemyRef, target);
+        base.Setup(attachedEnemy, target);
     }
 
     public override void Start()
