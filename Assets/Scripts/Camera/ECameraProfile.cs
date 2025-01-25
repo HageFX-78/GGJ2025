@@ -3,4 +3,5 @@ public enum ECameraProfile
 {
     EnemyPop,
     PlayerPop,
+    PlayerShoot,
 }
