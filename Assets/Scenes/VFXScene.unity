@@ -6321,7 +6321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Sprite: {fileID: 1866912961}
-  _HitParticle: {fileID: 0}
+  _HitParticle: {fileID: 660371511}
 --- !u!1 &1869116291
 GameObject:
   m_ObjectHideFlags: 0
