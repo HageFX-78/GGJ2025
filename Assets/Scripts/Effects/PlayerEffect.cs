@@ -8,18 +8,10 @@ public class PlayerEffect : MonoBehaviour
     [SerializeField] private ParticleSystem _HitParticle;
     private Coroutine movementCoroutine;
     private bool isMoving = false;
-
-    public void Update()
+    private Vector3 originalScale;
+    void Start()
     {
-        if(Input.GetKey(KeyCode.Space))
-        {
-            ShootEffect();
-        }
-        else if(Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            HitEffect();
-        }
-        MovementSquishStretch();
+        originalScale = _Sprite.transform.localScale;
     }
 
     void ShootEffect()
@@ -29,13 +21,13 @@ public class PlayerEffect : MonoBehaviour
 
     Tweener SquishStretch()
     {
-        return _Sprite.transform.DOScale(new Vector3(1.2f, 0.8f, 1.2f), 0.15f).SetEase(Ease.InOutBounce).OnComplete(() =>
+        return _Sprite.transform.DOScale(new Vector3(originalScale.x * 1.2f, originalScale.y * 0.8f, originalScale.z * 1.2f), 0.15f).SetEase(Ease.InOutBounce).OnComplete(() =>
         {
-            _Sprite.transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.InOutBounce);
+            _Sprite.transform.DOScale(originalScale, 0.15f).SetEase(Ease.InOutBounce);
         });
     }
 
-    void HitEffect()
+    public void HitEffect()
     {
         SquishStretch();
         _HitParticle.Play();
@@ -45,9 +37,9 @@ public class PlayerEffect : MonoBehaviour
     }
 
     // Suishstretch when moving but return to normal when stop
-    void MovementSquishStretch()
+    public void MovementSquishStretch(bool hasVelocity)
     {
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if(hasVelocity)
         {
             isMoving = true;
             if(movementCoroutine == null)
@@ -69,6 +61,6 @@ public class PlayerEffect : MonoBehaviour
             yield return new WaitForSeconds(0.3f);
         }
         movementCoroutine = null;
-        _Sprite.transform.DOScale(Vector3.one, 0.1f).SetEase(Ease.InOutBounce);
+        _Sprite.transform.DOScale(originalScale, 0.1f).SetEase(Ease.InOutBounce);
     }
 }

@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Health health;
+
+    private PlayerEffect playerEffect;
     private float growSize = 1 ;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.linearDamping = drag;
         health = GetComponent<Health>();
+        playerEffect = GetComponent<PlayerEffect>();
     }
 
     // Update is called once per frame
@@ -25,6 +28,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = moveInput * moveSpeed;
         }
+
+        playerEffect.MovementSquishStretch(moveInput != Vector2.zero);
     }
 
     public void Move(InputAction.CallbackContext context)
