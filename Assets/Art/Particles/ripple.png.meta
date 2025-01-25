@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: feba1f5dfaa6ce64e8bd75466f93c140
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2001549890549242753
+    second: ripple_0
+  - first:
+      213: -5515243490845997731
+    second: ripple_1
+  - first:
+      213: -8971687091379179229
+    second: ripple_2
+  - first:
+      213: 2727424213261008626
+    second: ripple_3
+  - first:
+      213: 7304194531925204606
+    second: ripple_4
+  - first:
+      213: 3352150210647711678
+    second: ripple_5
+  - first:
+      213: 675501569875432420
+    second: ripple_6
+  - first:
+      213: -6687204827729400600
+    second: ripple_7
+  - first:
+      213: -1952300521167680782
+    second: ripple_8
+  - first:
+      213: -4602976030435344579
+    second: ripple_9
+  - first:
+      213: -2703265152519499288
+    second: ripple_10
+  - first:
+      213: -1533473585837526725
+    second: ripple_11
+  - first:
+      213: 3488486040942826362
+    second: ripple_12
+  - first:
+      213: -7293030429250398520
+    second: ripple_13
+  - first:
+      213: 8873817904882354985
+    second: ripple_14
+  - first:
+      213: -1040812027098524857
+    second: ripple_15
+  - first:
+      213: 5608660167939647261
+    second: ripple_16
+  - first:
+      213: 8084725152663825615
+    second: ripple_17
+  - first:
+      213: 8459023662592177624
+    second: ripple_18
+  - first:
+      213: -3922652678975587466
+    second: ripple_19
+  - first:
+      213: 2080241905373735685
+    second: ripple_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ripple_0
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 754
+        width: 136
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f74279daaf01934e0800000000000000
+      internalID: -2001549890549242753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_1
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 771
+        width: 40
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d55c65e144be573b0800000000000000
+      internalID: -5515243490845997731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_2
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 649
+        width: 425
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 321f26adf1a2e7380800000000000000
+      internalID: -8971687091379179229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 745
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2feb8371fd1c9d520800000000000000
+      internalID: 2727424213261008626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_4
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 735
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7e90cd3a36bd5560800000000000000
+      internalID: 7304194531925204606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_5
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 140
+        width: 611
+        height: 572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebf586b2bda358e20800000000000000
+      internalID: 3352150210647711678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_6
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 711
+        width: 35
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3d4ad491ddf5900800000000000000
+      internalID: 675501569875432420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_7
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 308
+        width: 50
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ec69e6b3a64233a0800000000000000
+      internalID: -6687204827729400600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_8
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 278
+        width: 128
+        height: 383
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa8dfc050908e4e0800000000000000
+      internalID: -1952300521167680782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 489
+        width: 109
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f734c10b1fe10c0800000000000000
+      internalID: -4602976030435344579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_10
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 527
+        width: 41
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e112629aa21c7ad0800000000000000
+      internalID: -2703265152519499288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_11
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 95
+        width: 617
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b31b5bbf5e108bae0800000000000000
+      internalID: -1533473585837526725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_12
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 467
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a735e4a4297996030800000000000000
+      internalID: 3488486040942826362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_13
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 251
+        width: 29
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c65a68f673f9ca90800000000000000
+      internalID: -7293030429250398520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_14
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 263
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b83067e52262b70800000000000000
+      internalID: 8873817904882354985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_15
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 293
+        width: 41
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74396dec9fa4e81f0800000000000000
+      internalID: -1040812027098524857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_16
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 201
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17ecefe4b6f5dd40800000000000000
+      internalID: 5608660167939647261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_17
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 52
+        width: 237
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc613f01b6b23070800000000000000
+      internalID: 8084725152663825615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_18
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 83
+        width: 62
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d53e6b043d746570800000000000000
+      internalID: 8459023662592177624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_19
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 71
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67bfc6ceb20ff89c0800000000000000
+      internalID: -3922652678975587466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ripple_20
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 69
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50beea8cdf08edc10800000000000000
+      internalID: 2080241905373735685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ripple_0: -2001549890549242753
+      ripple_1: -5515243490845997731
+      ripple_10: -2703265152519499288
+      ripple_11: -1533473585837526725
+      ripple_12: 3488486040942826362
+      ripple_13: -7293030429250398520
+      ripple_14: 8873817904882354985
+      ripple_15: -1040812027098524857
+      ripple_16: 5608660167939647261
+      ripple_17: 8084725152663825615
+      ripple_18: 8459023662592177624
+      ripple_19: -3922652678975587466
+      ripple_2: -8971687091379179229
+      ripple_20: 2080241905373735685
+      ripple_3: 2727424213261008626
+      ripple_4: 7304194531925204606
+      ripple_5: 3352150210647711678
+      ripple_6: 675501569875432420
+      ripple_7: -6687204827729400600
+      ripple_8: -1952300521167680782
+      ripple_9: -4602976030435344579
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
