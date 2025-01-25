@@ -10,8 +10,6 @@ public class EnemyHit : MonoBehaviour
         if(collision.tag == "Player")
         {
 
-
-
         }
 
         else if (collision.tag == "Enemy")
@@ -36,7 +34,7 @@ public class EnemyHit : MonoBehaviour
                 if (collidedEnemy.GetPriorityID() > gameObject.GetComponent<Enemy>().GetPriorityID())
                 {
                     ICombineable combineable = collision.GetComponent<ICombineable>();
-                    if (combineable != null)
+                    if (combineable != null && collision.GetComponent<Enemy>() != null)
                     {
                         combineable.Combine(gameObject.GetComponent<Enemy>().enemySize);
                     }
