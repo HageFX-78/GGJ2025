@@ -72,11 +72,6 @@ public class Enemy : MonoBehaviour
         return priorityID;
     }
 
-    private void ProcessBehaviour()
-    {
-        behaviourComponent?.Update();
-    }
-
     private void OnDestroy()
     {
         behaviourComponent?.OnDeath();
