@@ -15,8 +15,8 @@ MonoBehaviour:
   priority: 2
   castTime: 2
   dashForce: 1
-  dashDuration: 1.2
-  dashCooldown: 5
+  dashDuration: 1
+  dashCooldown: 2
   dashForceMode: 1
   strength: 0.2
   vibrato: 20

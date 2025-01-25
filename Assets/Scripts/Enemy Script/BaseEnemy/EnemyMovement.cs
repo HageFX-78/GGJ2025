@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     public float enemyRotationSpeed = 5f;
     public bool canMove = true;
 
-    public Vector2 cachedDirectionToPlayer;
+    public Vector2 cachedDistanceToPlayer;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        cachedDirectionToPlayer = GetDirectionToPlayer();
+        cachedDistanceToPlayer = GetDistanceToPlayer();
 
         if (canMove)
         {
@@ -44,14 +44,14 @@ public class EnemyMovement : MonoBehaviour
         }
         
         //update rotation based on directionToPlayer
-        UpdateRotation(cachedDirectionToPlayer);
+        UpdateRotation(cachedDistanceToPlayer);
     }
 
 
     private void Move()
     {
         //get direction, calculate the directional force
-        var directionalForce = CalculateDirectionalForce(cachedDirectionToPlayer);
+        var directionalForce = CalculateDirectionalForce(cachedDistanceToPlayer);
         enemyRigidBody.AddForce(new Vector2(directionalForce.movementX, directionalForce.movementY));
     }
 
@@ -69,9 +69,14 @@ public class EnemyMovement : MonoBehaviour
         canMove = true;
     }
 
-    public Vector2 GetDirectionToPlayer()
+    public Vector2 GetDistanceToPlayer()
     {
         return (player.transform.position - transform.position);
+    }
+    
+    public Vector2 GetDirectionToPlayerNormalized()
+    {
+        return (player.transform.position - transform.position).normalized;
     }
 
     public void UpdateRotation(Vector2 directionToPlayer)

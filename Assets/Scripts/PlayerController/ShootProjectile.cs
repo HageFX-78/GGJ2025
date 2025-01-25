@@ -19,7 +19,6 @@ public class ShootProjectile : MonoBehaviour
     private float altFireTime = 0f;
     private bool altCoolDown = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnEnable()
     {
         if(altAttackBtn)

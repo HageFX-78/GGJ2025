@@ -8,32 +8,23 @@ namespace Enemy_Script.Behaviour.Scriptable
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private float shootInterval = 2f;
         [SerializeField] private float shootOffset = 1f;
-        
-        
-        private ShootProjectile projectileComponent = null;
+        [SerializeField] private float projectileSpeed = 5f;
         
         public override void Setup(Enemy attachedEnemy, GameObject target)
         {
             base.Setup(attachedEnemy, target);
-
-            if (projectileComponent == null)
-            {
-                projectileComponent = attachedEnemy.gameObject.AddComponent<ShootProjectile>();
-                if (projectileComponent == null) 
-                    Debug.LogWarning("ProjectileComponent is still null");
-            }
         }
 
         public override void Start()
         {
             base.Start();
+            
+            StartTimer(ShootProjectile, shootInterval, true);
         }
         
         public override void Update()
         {
             base.Update();
-            
-            StartTimer(ShootProjectile, shootInterval, true);
         }
 
         public override void OnDeath()
@@ -43,8 +34,31 @@ namespace Enemy_Script.Behaviour.Scriptable
 
         private void ShootProjectile()
         {
-            Transform offsetTransform = EnemyMovementRef.transform;
-            projectileComponent.Shoot(offsetTransform);
+            Shoot(projectilePrefab);
+        }
+        
+        public void Shoot(GameObject projectile)
+        {
+            if (!EnemyMovementRef)
+            {
+                Debug.LogWarning("Trying to shoot while EnemyMovementRef is null");
+                return;
+            }
+
+            var directionToPlayer = EnemyMovementRef.GetDirectionToPlayerNormalized();
+            
+            Vector3 spawnedLocation = EnemyMovementRef.transform.position +
+                                      new Vector3(directionToPlayer.x, directionToPlayer.y).normalized
+                                      * shootOffset;
+            
+            GameObject spawnProjectile = Instantiate(projectilePrefab, spawnedLocation, Quaternion.identity);
+            
+            Rigidbody2D rb = spawnProjectile.GetComponent<Rigidbody2D>();
+            if(rb != null)
+            {
+                rb.linearVelocity = directionToPlayer * projectileSpeed;
+            }
+            
         }
     }
 }

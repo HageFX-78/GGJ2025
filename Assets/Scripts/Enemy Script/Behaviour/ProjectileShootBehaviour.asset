@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: ProjectileShootBehaviour
   m_EditorClassIdentifier: 
   priority: 0
-  projectilePrefab: {fileID: 6215874621632528849, guid: 9f956b0fbc47ea149ba56e8b63946646, type: 3}
+  projectilePrefab: {fileID: 6215874621632528849, guid: 838d9fc19a3e12c44a422ab682b05500, type: 3}
+  shootInterval: 2
+  shootOffset: 2
+  projectileSpeed: 7
