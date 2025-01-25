@@ -19,7 +19,7 @@ public class TestSpawnEnemy : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // 0 is the left mouse button
         {
-            //SpawnObjectAtMousePosition();
+            SpawnObjectAtMousePosition();
         }
     }
 

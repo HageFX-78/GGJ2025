@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tier 1 Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4506060394979885909, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: enemySize
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5039572840146029531, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: m_Color.b
       value: 0

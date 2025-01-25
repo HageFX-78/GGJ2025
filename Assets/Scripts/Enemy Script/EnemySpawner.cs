@@ -4,8 +4,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public EnemyPoolList enemyPoolList;
-    public GameObject player;
-
+    private GameObject player;
+    public GameManager gameManager;
 
     public float spawnRangeMultiplier = 5f;
 
@@ -19,14 +19,7 @@ public class EnemySpawner : MonoBehaviour
     private Camera mainCamera;
     
     private float spawnTimer = 0;
-    private int currentWave = 1; //TEMP
-
-
-    //private List<int> spawnAmount = new List<int>();
-
-    //[SerializeField]
-    //[Tooltip("How rare the enemy can spawn (0.0 - 1)")]
-    //private List<float> spawnChance = new List<float>(); // How rare the enemy can spawn (0.0 - 1)
+    //private int currentWave = 1; //TEMP
 
     public List<EnemySpawnInfo> enemySpawnInfo;
 
@@ -41,7 +34,6 @@ public class EnemySpawner : MonoBehaviour
         private int spawnAmount;
         public void UpdateSpawnAmount(int newAmount)
         {
-            Debug.Log("UPDATE : " + newAmount);
             spawnAmount = newAmount;
 
         }
@@ -68,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(enableSpawning)
+        if(enableSpawning && !gameManager.isGameover)
         {
             SpawnEnemies();
         }
@@ -79,9 +71,10 @@ public class EnemySpawner : MonoBehaviour
         if (spawnTimer <= 0)
         {
             //Debug.Log("Current Wave: " + currentWave);
+            SetEnemyChance();
             Spawn();
             spawnTimer = spawnRate;
-            currentWave++;
+            gameManager.currentWave++;
             
         }
         else
@@ -94,10 +87,9 @@ public class EnemySpawner : MonoBehaviour
     public void Spawn()
     { 
         SetEnemySpawnAmount();
-        //Debug.Log(enemySpawnInfo.Count);
+        
         for(int i = 0; i < enemySpawnInfo.Count; i++) 
         {
-            Debug.Log("SPAWN AMOUNT: " + enemySpawnInfo[i].GetSpawnAmount());
             for (int k = 0; k < enemySpawnInfo[i].GetSpawnAmount(); k++)
             {
                 Vector2 spawnPosition = GetRandomPositionOutsideViewport();
@@ -118,18 +110,25 @@ public class EnemySpawner : MonoBehaviour
                 {
                     enemySpawnInfo[i].UpdateSpawnAmount(enemySpawnInfo[i].GetSpawnAmount() + 1);
                     
-                    //spawnAmount[i]++;
-
                 }
                 else
                 {
                     enemySpawnInfo[0].UpdateSpawnAmount(enemySpawnInfo[0].GetSpawnAmount() + 1);
 
-                    Debug.Log("CURRENT: " + enemySpawnInfo[0].GetSpawnAmount());
-                    // spawnAmount[0]++;
                 }
             }
         }
+
+    }
+
+    private void SetEnemyChance()
+    {
+        //SET NEW CHANCES HERE
+
+
+
+
+
 
     }
 

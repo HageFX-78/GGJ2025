@@ -4,6 +4,8 @@ using UnityEngine;
 public class EnemyCombine : MonoBehaviour, ICombineable
 {
     public EnemyPoolList enemyPoolList;
+
+
     private List<EnemyObjectPool> enemyObjectPool;
 
 
@@ -24,14 +26,35 @@ public class EnemyCombine : MonoBehaviour, ICombineable
      
         if(GetComponent<Enemy>().canCombine)
         {
+            bool doCreateNewEnemy = false;
+            int newEnemyTier = 1;
+
             if (newEnemySize > 2 && currentSize < 2)
             {
-                newEnemy = enemyObjectPool[1].GetPooledEnemy(transform.position, transform.rotation);
+                doCreateNewEnemy = true;
+                newEnemyTier = 1;
+            }
+            else if (newEnemySize > 3 && currentSize < 3)
+            {
+                doCreateNewEnemy = true;
+                newEnemyTier = 2;
+            }
+            else if (newEnemySize > 4 && currentSize < 4)
+            {
+                doCreateNewEnemy = true;
+                newEnemyTier = 3;
+            }
+
+
+            if (doCreateNewEnemy)
+            {
+                newEnemy = enemyObjectPool[newEnemyTier].GetPooledEnemy(transform.position, transform.rotation);
                 newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
                 newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
                 gameObject.SetActive(false);
+
             }
-           
+
             GetComponent<Enemy>().SetupEnemy(newEnemySize);
            
             //Debug.Log(newEnemySize);

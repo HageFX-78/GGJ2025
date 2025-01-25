@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.1f); // Wait for the cooldown duration
         canCombine = true; // End cooldown
 
-        print(canCombine);
+        //print(canCombine);
     }
 
 
