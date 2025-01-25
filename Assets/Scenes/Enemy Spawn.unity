@@ -302,11 +302,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPoolList: {fileID: 11400000, guid: fdb85ef23c299614cb779f9cc518b10d, type: 2}
   player: {fileID: 1830330297}
-  minSpawnAmount: 1
-  maxSpawnAmount: 2
+  minSpawnAmount: 5
+  maxSpawnAmount: 5
   minSpawnRange: 1.1
   maxSpawnRange: 1.5
   spawnRate: 5
+  isWaveModeEnabled: 1
+  enableSpawning: 1
 --- !u!1 &1830330297
 GameObject:
   m_ObjectHideFlags: 0
