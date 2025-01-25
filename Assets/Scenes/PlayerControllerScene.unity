@@ -679,6 +679,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 22810cde-20fa-4af3-9b1a-bc7b85a28aac
     m_ActionName: 'Player/Zoom[/Mouse/scroll/y]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 145c2bba-45b7-4780-ab5f-7347b9b35bfa
+    m_ActionName: 'Player/AltAttack[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -711,11 +715,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile1: {fileID: 8308761087185327804, guid: 827fcb16b7431ec4e8d77fd2a8c424d8, type: 3}
+  projectile2: {fileID: 8308761087185327804, guid: 827fcb16b7431ec4e8d77fd2a8c424d8, type: 3}
   arrowOffSet: {fileID: 1878129447}
   projectileSpeed: 5
+  projectile2Speed: 10
   fireRate: 1
+  coolDownTime: 5
   attackBtn: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  altAttackBtn: {fileID: 0}
+  altAttackBtn: {fileID: -4686885534652759174, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!114 &1753742719
 MonoBehaviour:
   m_ObjectHideFlags: 0
