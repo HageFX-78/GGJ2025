@@ -16,11 +16,28 @@ public class Enemy : MonoBehaviour
         
     }
 
+  /*  public void SetSize(Vector3 oldSize, Vector3 newSize)
+    {
+    
+        transform.localScale = Vector3.Lerp(oldSize, newSize , Time.deltaTime * 0.001f);
+        enemySize = newSize.x;
+    }*/
+
     public void SetupEnemy()
     {
+        //transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale = new Vector3(enemySize, enemySize, enemySize), Time.deltaTime * 10);
         gameObject.transform.localScale = new Vector3(enemySize, enemySize, enemySize);
+    }
+
+    public void SetupEnemy(Vector3 newSize)
+    {
+        //transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale = new Vector3(enemySize, enemySize, enemySize), Time.deltaTime * 10);
+        gameObject.transform.localScale = newSize;
+        enemySize = newSize.x;
 
     }
+
+
     public float GetPriorityID()
     {
         return priorityID;

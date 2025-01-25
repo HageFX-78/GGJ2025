@@ -10,8 +10,6 @@ public class EnemyHit : MonoBehaviour
         if(collision.tag == "Player")
         {
 
-
-
         }
 
         else if (collision.tag == "Enemy")
