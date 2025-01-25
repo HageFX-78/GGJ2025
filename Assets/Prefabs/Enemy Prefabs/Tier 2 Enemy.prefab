@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: 'behavioursToAttach.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 7205e0f815d3d7646b5d45ce7666d580, type: 2}
+    - target: {fileID: 6344441054754589961, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
+      propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8426939491256329901, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -10,12 +10,26 @@ public class Health : MonoBehaviour, IDamageable, IHeal
 
         if (health <= 0)
         {
-            if(gameObject.tag == "Enemy")
+            
+        }
+
+        if (gameObject.tag == "Enemy")
+        {
+            if (health <= 0)
             {
                 gameObject.SetActive(false);
             }
-            // NEED CHANGE BECAUSE ENEMY DOESNT DESTROY
+            else
+            {
+                //gameObject.GetComponent<Enemy>().SetupEnemy(health);
+            }
         }
+
+    }
+
+    public void SetHealth(float totalHealth)
+    {
+        health = totalHealth;
     }
 
     public void Heal(float healAmount) 

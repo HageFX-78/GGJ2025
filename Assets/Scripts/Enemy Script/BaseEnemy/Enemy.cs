@@ -40,12 +40,15 @@ public class Enemy : MonoBehaviour
     public void SetupEnemy()
     {
         gameObject.transform.localScale = new Vector3(enemySize, enemySize, enemySize);
+        gameObject.GetComponent<Health>().SetHealth(enemySize);
     }
 
     public void SetupEnemy(float newSize)
     {
         enemySize = newSize;
         gameObject.transform.localScale = new Vector3(enemySize, enemySize, enemySize);
+
+        gameObject.GetComponent<Health>().SetHealth(enemySize);
     }
 
     private void OnEnable()

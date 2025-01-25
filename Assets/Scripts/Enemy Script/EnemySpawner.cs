@@ -59,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(enableSpawning && !GameManager.IS_GAMEOVER)
+        if (enableSpawning && !GameManager.IS_GAMEOVER)
         {
             SpawnEnemies();
         }
