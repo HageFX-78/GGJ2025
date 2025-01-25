@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -19,7 +20,9 @@ public class DashBehaviour : BehaviourScriptable
     [SerializeField] private bool snapping = false;
     [SerializeField] private bool fadeOut = true;
     [SerializeField] private ShakeRandomnessMode shakeMode = ShakeRandomnessMode.Full;
-    
+
+    public Action<float> OnDash;
+        
     public override void Setup(Enemy attachedEnemy, GameObject target)
     {
         base.Setup(attachedEnemy, target);
@@ -44,7 +47,10 @@ public class DashBehaviour : BehaviourScriptable
 
     private void Dash()
     {
-        BehaviourComponentRef.StartCoroutine(CastingDash());
+        if (BehaviourComponentRef)
+        {
+            BehaviourComponentRef.StartCoroutine(CastingDash());
+        }
     }
     
     IEnumerator CastingDash()
@@ -52,10 +58,12 @@ public class DashBehaviour : BehaviourScriptable
         //during cast time, pause movement and shake visual
         EnemyMovementRef.PauseMovement(castTime + dashDuration);
         EnemyVisual.transform.DOShakePosition(castTime, strength, vibrato, randomness, snapping, fadeOut, shakeMode);
-        yield return new WaitForSeconds(castTime);
         
-        var directionalForce = EnemyMovementRef.CalculateDirectionalForce(EnemyMovementRef.cachedDirectionToPlayer);
+        yield return new WaitForSeconds(castTime);
+        var directionalForce = EnemyMovementRef.CalculateDirectionalForce(EnemyMovementRef.GetDirectionToPlayerNormalized());
         EnemyMovementRef.enemyRigidBody.AddForce(
             new Vector2(directionalForce.movementX * dashForce, directionalForce.movementY * dashForce), dashForceMode);
+        
+        OnDash?.Invoke(dashDuration);
     }
 }

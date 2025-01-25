@@ -9,12 +9,11 @@ public class PrimaryProjectile : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (coll.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-
-            coll.gameObject.GetComponent<IDamageable>()?.Damage(damage);
+            other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
             Destroy(gameObject);
     
         }

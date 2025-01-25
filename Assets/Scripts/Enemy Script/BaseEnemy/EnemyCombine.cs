@@ -4,6 +4,8 @@ using UnityEngine;
 public class EnemyCombine : MonoBehaviour, ICombineable
 {
     public EnemyPoolList enemyPoolList;
+
+
     private List<EnemyObjectPool> enemyObjectPool;
 
 
@@ -17,33 +19,45 @@ public class EnemyCombine : MonoBehaviour, ICombineable
     {
         float newEnemySize = 1;
         newEnemySize = (enemySize * combineSizeMultiplier + gameObject.GetComponent<Enemy>().enemySize);
+
+        float currentSize = GetComponent<Enemy>().enemySize;
         
-
-        //TEMP----------------------------------
         GameObject newEnemy;
-       /* if (gameObject.GetComponent<Enemy>().isActiveAndEnabled)
-        {*/
-        if (newEnemySize < 2)
+     
+        if(GetComponent<Enemy>().canCombine)
         {
-            newEnemy = enemyObjectPool[0].GetPooledEnemy(transform.position, transform.rotation);
+            bool doCreateNewEnemy = false;
+            int newEnemyTier = 1;
+
+            if (newEnemySize > 2 && currentSize < 2)
+            {
+                doCreateNewEnemy = true;
+                newEnemyTier = 1;
+            }
+            else if (newEnemySize > 3 && currentSize < 3)
+            {
+                doCreateNewEnemy = true;
+                newEnemyTier = 2;
+            }
+            else if (newEnemySize > 4 && currentSize < 4)
+            {
+                doCreateNewEnemy = true;
+                newEnemyTier = 3;
+            }
+
+
+            if (doCreateNewEnemy)
+            {
+                newEnemy = enemyObjectPool[newEnemyTier].GetPooledEnemy(transform.position, transform.rotation);
+                newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
+                newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
+                gameObject.SetActive(false);
+
+            }
+
+            GetComponent<Enemy>().SetupEnemy(newEnemySize);
+           
+            //Debug.Log(newEnemySize);
         }
-        else
-        {
-            newEnemy = enemyObjectPool[1].GetPooledEnemy(transform.position, transform.rotation);
-        }
-
-        //}
-
-        newEnemy.GetComponent<Enemy>().enemySize = newEnemySize;
-        newEnemy.GetComponent<Enemy>().SetupEnemy();
-
-        newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
-        newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
-
-        Debug.Log(newEnemySize);
-        gameObject.SetActive(false);
-
     }
-
-
 }

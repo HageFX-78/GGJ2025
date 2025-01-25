@@ -2,22 +2,14 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
+    [SerializeField] private float healthGained = 1f;
 
-    private void Start()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collided");
-            coll.gameObject.GetComponent<IHeal>()?.Heal(1);
+            other.gameObject.GetComponent<IHeal>()?.Heal(healthGained);
             Destroy(gameObject);
         }
-        
     }
- 
-
 }

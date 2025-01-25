@@ -1,5 +1,6 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,22 +14,22 @@ public class ShootProjectile : MonoBehaviour
     public float fireRate = 0.5f;
     public float coolDownTime = 5f;
     
-
-    [SerializeField]private InputActionReference attackBtn;
+    [SerializeField] private InputActionReference attackBtn;
     [SerializeField] private InputActionReference altAttackBtn;
     private float nextFireTime = 0f;
     private float altFireTime = 0f;
     private bool altCoolDown = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnEnable()
     {
-        altAttackBtn.action.performed += ChargedAttack;
+        if(altAttackBtn)
+            altAttackBtn.action.performed += ChargedAttack;
     }
 
     private void OnDisable()
     {
-        altAttackBtn.action.performed -= ChargedAttack;
+        if(altAttackBtn)
+            altAttackBtn.action.performed -= ChargedAttack;
     }
 
     private void ChargedAttack(InputAction.CallbackContext context)
@@ -37,12 +38,13 @@ public class ShootProjectile : MonoBehaviour
         {
             AltShoot(arrowOffSet);
             altCoolDown = true;
+            EventManager.FireEvent(GameEvents.AltFireSetCD, coolDownTime); 
         }
     }
 
     void Update()
     {
-       if (attackBtn.action.IsPressed())
+        if (attackBtn != null && attackBtn.action.IsPressed())
         {
             if(Time.time >= nextFireTime)
             {
@@ -62,8 +64,6 @@ public class ShootProjectile : MonoBehaviour
 
         }
     }
-
-
     
     public void Shoot(Transform projectileTransform)
     {
@@ -71,7 +71,7 @@ public class ShootProjectile : MonoBehaviour
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if(rb != null)
         {
-            rb.linearVelocity = arrowOffSet.right * projectileSpeed;
+            rb.linearVelocity = projectileTransform.right * projectileSpeed;
         }
     }
 
@@ -81,7 +81,7 @@ public class ShootProjectile : MonoBehaviour
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.linearVelocity = arrowOffSet.right * projectile2Speed;
+            rb.linearVelocity = projectileTransform.right * projectile2Speed;
         }
     }
 }
