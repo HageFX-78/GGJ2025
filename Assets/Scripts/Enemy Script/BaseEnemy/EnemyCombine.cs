@@ -18,7 +18,8 @@ public class EnemyCombine : MonoBehaviour, ICombineable
     public void Combine(float enemySize)
     {
         float newEnemySize = 1;
-        newEnemySize = (enemySize * combineSizeMultiplier + gameObject.GetComponent<Enemy>().enemySize);
+        float addedSize = enemySize * combineSizeMultiplier;
+        newEnemySize = (addedSize + gameObject.GetComponent<Enemy>().enemySize);
 
         float currentSize = GetComponent<Enemy>().enemySize;
         
@@ -44,20 +45,17 @@ public class EnemyCombine : MonoBehaviour, ICombineable
                 doCreateNewEnemy = true;
                 newEnemyTier = 3;
             }
-
-
-            if (doCreateNewEnemy)
+            
+            if(doCreateNewEnemy)
             {
                 newEnemy = enemyObjectPool[newEnemyTier].GetPooledEnemy(transform.position, transform.rotation);
-                newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
                 newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
                 gameObject.SetActive(false);
-
             }
 
-            GetComponent<Enemy>().SetupEnemy(newEnemySize);
-           
-            //Debug.Log(newEnemySize);
+            GetComponent<Health>().Heal(addedSize);
+            GetComponent<Enemy>().SetSize(newEnemySize);
+
         }
     }
 }

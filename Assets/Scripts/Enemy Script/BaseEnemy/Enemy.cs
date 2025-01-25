@@ -40,21 +40,22 @@ public class Enemy : MonoBehaviour
     public void SetupEnemy()
     {
         gameObject.transform.localScale = new Vector3(enemySize, enemySize, enemySize);
-        gameObject.GetComponent<Health>().SetHealth(enemySize);
+        gameObject.GetComponent<Health>().ResetHealth();
     }
 
-    public void SetupEnemy(float newSize)
+    public void SetSize(float newSize)
     {
         enemySize = newSize;
         gameObject.transform.localScale = new Vector3(enemySize, enemySize, enemySize);
 
-        gameObject.GetComponent<Health>().SetHealth(enemySize);
     }
 
     private void OnEnable()
     {
+        SetupEnemy();
         StartCoroutine(CombineCountdown());
     }
+
     private void OnDisable()
     {
         canCombine = false;

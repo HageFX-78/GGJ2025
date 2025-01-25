@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable, IHeal
 {
+    public float maxHealth = 1;
     public float health = 1;
-
+    
     public void Damage(float healthDamage)
     {
         health = health - healthDamage;
@@ -26,11 +27,15 @@ public class Health : MonoBehaviour, IDamageable, IHeal
         }
 
     }
-
-    public void SetHealth(float totalHealth)
+  
+    public void ResetHealth()
+    {
+        health = maxHealth;
+    }
+   /* public void SetHealth(float totalHealth)
     {
         health = totalHealth;
-    }
+    }*/
 
     public void Heal(float healAmount) 
     {
