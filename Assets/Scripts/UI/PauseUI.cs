@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PauseUI : MonoBehaviour
 {
     bool isPaused = false;
     [SerializeField] GameObject pauseCanvas;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

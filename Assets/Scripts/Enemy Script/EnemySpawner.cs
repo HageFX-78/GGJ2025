@@ -5,11 +5,11 @@ public class EnemySpawner : MonoBehaviour
 {
     public EnemyPoolList enemyPoolList;
     private GameObject player;
-    public GameManager gameManager;
+    
+    public GameManager GameManager => GameManager.Instance;
 
     public float spawnRangeMultiplier = 5f;
-
-
+    
     [Tooltip("How Long until Next Spawn (in Seconds)")]
     public float spawnRate = 5f;
 
@@ -47,8 +47,7 @@ public class EnemySpawner : MonoBehaviour
             return spawnAmount; 
         }
     }
-
-
+    
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -60,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(enableSpawning && !gameManager.isGameover)
+        if(enableSpawning && !GameManager.IS_GAMEOVER)
         {
             SpawnEnemies();
         }
@@ -74,8 +73,7 @@ public class EnemySpawner : MonoBehaviour
             SetEnemyChance();
             Spawn();
             spawnTimer = spawnRate;
-            gameManager.currentWave++;
-            
+            GameManager.currentWave++;
         }
         else
         {
@@ -95,7 +93,6 @@ public class EnemySpawner : MonoBehaviour
                 Vector2 spawnPosition = GetRandomPositionOutsideViewport();
 
                 enemySpawnInfo[i].enemyObjectPool.GetPooledEnemy(spawnPosition, Quaternion.Euler(0,0,0));
-
             }
         }
     }
