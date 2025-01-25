@@ -1,5 +1,6 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -37,6 +38,7 @@ public class ShootProjectile : MonoBehaviour
         {
             AltShoot(arrowOffSet);
             altCoolDown = true;
+            EventManager.FireEvent(GameEvents.AltFireSetCD, coolDownTime); 
         }
     }
 
@@ -62,8 +64,6 @@ public class ShootProjectile : MonoBehaviour
 
         }
     }
-
-
     
     public void Shoot(Transform projectileTransform)
     {

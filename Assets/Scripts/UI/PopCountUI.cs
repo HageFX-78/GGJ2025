@@ -19,4 +19,9 @@ public class PopCountUI : MonoBehaviour
         popCount++;
         _popCount.text = popCount.ToString();
     }
+
+    private void OnDestroy()
+    {
+        EventManager.DisconnectEvent(GameEvents.IncreasePopCount, IncreasePopCount);
+    }
 }
