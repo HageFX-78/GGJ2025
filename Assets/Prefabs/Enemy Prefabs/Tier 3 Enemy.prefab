@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: enemyMaxSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 880768459310461616, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2891496777756699198, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: m_Name
       value: Tier 3 Enemy
@@ -92,7 +96,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 880768459310461616, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

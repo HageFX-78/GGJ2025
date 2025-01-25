@@ -34,9 +34,10 @@ public class EnemyHit : MonoBehaviour
                 if (combineable != null && collision.isActiveAndEnabled)
                 {
                     combineable.Combine(gameObject.GetComponent<Enemy>().enemySize);
+                    gameObject.SetActive(false);
                 }
 
-                gameObject.SetActive(false);
+                
             }
 
         }

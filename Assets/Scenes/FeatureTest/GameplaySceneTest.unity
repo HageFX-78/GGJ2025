@@ -167,6 +167,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: spawnRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 688814995}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: spawnRangeMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[0].enemyObjectPool
+      value: 
+      objectReference: {fileID: 11400000, guid: d56a880a2cdfdff498ed7abcbcc45ace, type: 2}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[1].enemyObjectPool
+      value: 
+      objectReference: {fileID: 11400000, guid: d41041bddd6c41c4db42099216240ba3, type: 2}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[2].enemyObjectPool
+      value: 
+      objectReference: {fileID: 11400000, guid: 3eb8893339834ec459c104dd463ce064, type: 2}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[3].enemyObjectPool
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e417e543ef3fcd4cb9a2dcee5a51120, type: 2}
     - target: {fileID: 4785876162703058117, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
       propertyPath: m_Name
       value: Enemy Spawn Manager
@@ -265,6 +297,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 888f5aaef856ef146b16026261b09f7c, type: 3}
+--- !u!1 &688814993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688814994}
+  - component: {fileID: 688814995}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &688814994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688814993}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0535946, y: -1.0110328, z: -0.049276598}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &688814995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688814993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ea0746a6ab3b746b2f5024b547d2ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGameover: 0
+  currentWave: 1
 --- !u!1 &1488178455
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,3 +1038,4 @@ SceneRoots:
   - {fileID: 7464775337968240349}
   - {fileID: 1488178456}
   - {fileID: 9177262842825900562}
+  - {fileID: 688814994}
