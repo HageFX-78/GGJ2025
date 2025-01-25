@@ -21,9 +21,14 @@ public class ShootProjectile : MonoBehaviour
     private bool altCoolDown = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Awake()
+    private void OnEnable()
     {
         altAttackBtn.action.performed += ChargedAttack;
+    }
+
+    private void OnDisable()
+    {
+        altAttackBtn.action.performed -= ChargedAttack;
     }
 
     private void ChargedAttack(InputAction.CallbackContext context)
