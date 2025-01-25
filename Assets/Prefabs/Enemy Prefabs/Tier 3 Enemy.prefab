@@ -21,16 +21,20 @@ PrefabInstance:
       value: Tier 3 Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3034828089536489040, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
+      propertyPath: isABoss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034828089536489040, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: enemySize
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5521032269936322572, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: health
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5521032269936322572, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: maxHealth
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5865224740218924766, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: m_Color.b

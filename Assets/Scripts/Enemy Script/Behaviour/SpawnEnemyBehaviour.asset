@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SpawnEnemyBehaviour
   m_EditorClassIdentifier: 
   priority: 1
-  spawnedEnemy: {fileID: 7411834821407098992, guid: 5b6f85bf3ed9a96418e6116015d968b4, type: 3}
-  spawnInterval: 2
+  spawnedEnemy: {fileID: 2891496777756699198, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
+  spawnInterval: 5
   spawnMaxCooldown: 2
   spawnInnerRadius: 3
   spawnOuterRadius: 5

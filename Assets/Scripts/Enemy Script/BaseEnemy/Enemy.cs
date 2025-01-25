@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 {
     public bool canCombine = false;
     public float enemySize = 1;
+    public bool isABoss = false;
     private float priorityID;
 
     [HideInInspector] public BehaviourComponent behaviourComponent;
@@ -58,6 +59,11 @@ public class Enemy : MonoBehaviour
 
     private void OnDisable()
     {
+        if(isABoss)
+        {
+            EventManager.FireEvent(GameEvents.OnBossDefeated);
+        }
+        
         canCombine = false;
     }
 

@@ -8,7 +8,11 @@ public class GameManager : MonoBehaviour
     [Header("Current Stats")]
     public int currentWave = 1;
     public int bossKilled = 0;
+    public bool bossModeActivated = false;
+
+
     public bool IS_GAMEOVER = false;
+   
 
     private PlayerController player;
 
@@ -55,10 +59,15 @@ public class GameManager : MonoBehaviour
     private void HandleOnBossSpawn()
     {
         //TODO: SpawnManager Stop Spawn
+        bossModeActivated = true;
+        Debug.Log("BOSS MODE ENABLED, NO MORE SPAWNING");
     }
 
     private void HandleOnBossDefeat()
     {
+        bossModeActivated = false;
+        Debug.Log("BOSS MODE DISABLED, RESUME SPAWNING");
+
         bossKilled++;
         //TODO: SpawnManager Continue Spawn
     }

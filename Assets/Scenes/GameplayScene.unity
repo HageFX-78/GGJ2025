@@ -373,6 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWave: 1
   bossKilled: 0
+  bossModeActivated: 0
   IS_GAMEOVER: 0
 --- !u!4 &636007363
 Transform:

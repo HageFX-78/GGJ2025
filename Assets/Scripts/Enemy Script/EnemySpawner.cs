@@ -59,8 +59,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(enableSpawning && !gameManager.IS_GAMEOVER)
+        if(enableSpawning && !gameManager.IS_GAMEOVER && !gameManager.bossModeActivated)
         {
+            //Debug.Log("SPAWNING");
             SpawnEnemies();
         }
     }

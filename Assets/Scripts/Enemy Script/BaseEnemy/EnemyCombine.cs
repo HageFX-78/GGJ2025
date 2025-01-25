@@ -4,13 +4,14 @@ using UnityEngine;
 public class EnemyCombine : MonoBehaviour, ICombineable
 {
     public EnemyPoolList enemyPoolList;
-
+    public GameManager gameManager;
 
     private List<EnemyObjectPool> enemyObjectPool;
 
 
     public void Start()
     {
+        gameManager = GameManager.Instance;
         this.enemyObjectPool = enemyPoolList.enemyObjectPool;
     }
 
@@ -44,12 +45,15 @@ public class EnemyCombine : MonoBehaviour, ICombineable
             {
                 doCreateNewEnemy = true;
                 newEnemyTier = 3;
+                EventManager.FireEvent(GameEvents.OnBossSpawn);
+
             }
             
             if(doCreateNewEnemy)
             {
                 newEnemy = enemyObjectPool[newEnemyTier].GetPooledEnemy(transform.position, transform.rotation);
                 newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
+
                 gameObject.SetActive(false);
             }
 

@@ -1,9 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using DG.Tweening.Core.Easing;
 
 public class EnemyHit : MonoBehaviour
 {
-
+    GameManager gameManager;
+    public void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -28,7 +33,7 @@ public class EnemyHit : MonoBehaviour
                 isCombining = true;
             }
 
-            if (isCombining && collidedEnemy.canCombine)
+            if (isCombining && collidedEnemy.canCombine && !gameManager.bossModeActivated)
             {
                 ICombineable combineable = collision.GetComponent<ICombineable>();
                 if (combineable != null && collision.isActiveAndEnabled)
@@ -36,14 +41,9 @@ public class EnemyHit : MonoBehaviour
                     combineable.Combine(gameObject.GetComponent<Enemy>().enemySize);
                     gameObject.SetActive(false);
                 }
-
-                
+            
             }
 
         }
-
-  
     }
-
- 
 }
