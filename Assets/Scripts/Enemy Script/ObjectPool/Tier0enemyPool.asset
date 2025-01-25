@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Tier0enemyPool
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2891496777756699198, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
-  totalMax: 50
+  totalMax: 500
