@@ -21,7 +21,7 @@ public class EnemyHit : MonoBehaviour
             {
            
                 ICombineable combineable = collision.GetComponent<ICombineable>();
-                if (combineable != null)
+                if (combineable != null && collision.isActiveAndEnabled)
                 {
                     combineable.Combine(gameObject.GetComponent<Enemy>().enemySize);
                 }
@@ -34,7 +34,7 @@ public class EnemyHit : MonoBehaviour
                 if (collidedEnemy.GetPriorityID() > gameObject.GetComponent<Enemy>().GetPriorityID())
                 {
                     ICombineable combineable = collision.GetComponent<ICombineable>();
-                    if (combineable != null && collision.GetComponent<Enemy>() != null)
+                    if (combineable != null && collision.isActiveAndEnabled)
                     {
                         combineable.Combine(gameObject.GetComponent<Enemy>().enemySize);
                     }

@@ -77,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
 
             if (Random.Range(0f,1f) < 0.5f) 
             {
-                verticalMod = (verticalMod * -1) * 2f;
+                verticalMod = (verticalMod * -1);
             }
 
             horizontalMod = Random.Range(minSpawnRange, maxSpawnRange); // Get Vertical Spawn Pos
