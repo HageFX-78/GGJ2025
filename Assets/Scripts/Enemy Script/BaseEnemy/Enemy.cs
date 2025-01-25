@@ -1,16 +1,19 @@
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using System.Collections;
 
 [RequireComponent(typeof(BehaviourComponent))]
 public class Enemy : MonoBehaviour
 {
+    public bool canCombine = false;
     public float enemySize = 1;
     private float priorityID;
 
     [HideInInspector] public BehaviourComponent behaviourComponent;
     [HideInInspector] public EnemyMovement movementComponent;
     [HideInInspector] public GameObject visualChild;
+
     
     private void Awake()
     {
@@ -41,19 +44,32 @@ public class Enemy : MonoBehaviour
 
     public void SetupEnemy(float newSize)
     {
-        gameObject.transform.localScale = new Vector3(enemySize, enemySize, enemySize);
-
         enemySize = newSize;
+        gameObject.transform.localScale = new Vector3(enemySize, enemySize, enemySize);
     }
+
+    private void OnEnable()
+    {
+        StartCoroutine(CombineCountdown());
+    }
+    private void OnDisable()
+    {
+        canCombine = false;
+    }
+
+    IEnumerator CombineCountdown()
+    {
+        canCombine = false; // Start cooldown
+        yield return new WaitForSeconds(0.1f); // Wait for the cooldown duration
+        canCombine = true; // End cooldown
+
+        //print(canCombine);
+    }
+
 
     public float GetPriorityID()
     {
         return priorityID;
-    }
-
-    private void ProcessBehaviour()
-    {
-        behaviourComponent?.Update();
     }
 
     private void OnDestroy()

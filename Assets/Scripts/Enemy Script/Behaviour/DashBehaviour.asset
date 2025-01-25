@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7ecc3d9ddb78c4391af5ee030810b8, type: 3}
   m_Name: DashBehaviour
   m_EditorClassIdentifier: 
-  priority: 0
+  priority: 2
   castTime: 2
   dashForce: 1
-  dashDuration: 1.2
-  dashCooldown: 5
+  dashDuration: 1
+  dashCooldown: 2
   dashForceMode: 1
   strength: 0.2
   vibrato: 20

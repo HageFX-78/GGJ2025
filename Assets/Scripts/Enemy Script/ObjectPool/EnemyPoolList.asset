@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: EnemyPoolList
   m_EditorClassIdentifier: 
   enemyObjectPool:
+  - {fileID: 11400000, guid: d56a880a2cdfdff498ed7abcbcc45ace, type: 2}
   - {fileID: 11400000, guid: d41041bddd6c41c4db42099216240ba3, type: 2}
   - {fileID: 11400000, guid: 3eb8893339834ec459c104dd463ce064, type: 2}
+  - {fileID: 11400000, guid: 4e417e543ef3fcd4cb9a2dcee5a51120, type: 2}

@@ -8,6 +8,7 @@ public class TestSpawnEnemy : MonoBehaviour
 
     void Start()
     {
+        enemySpawner.Spawn();
         if (mainCamera == null)
         {
             mainCamera = Camera.main; // Automatically find the main camera
@@ -24,21 +25,11 @@ public class TestSpawnEnemy : MonoBehaviour
 
     void SpawnObjectAtMousePosition()
     {
-
-
-
         Vector3 mousePosition = Input.mousePosition;
 
-
         Vector2 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
-        //worldPosition.z = 0f; // Set z to 0 for 2D or adjust for your needs
-
-        enemySpawner.Spawn();
         
-        /*GameObject newEnemy = enemyPoolList.enemyObjectPool[0].GetPooledEnemy(worldPosition, Quaternion.identity);
-
-        newEnemy.GetComponent<Enemy>().enemySize = 1;
-        newEnemy.GetComponent<Enemy>().SetupEnemy();*/
-        //Instantiate(objectToSpawn, worldPosition, Quaternion.identity);
+        enemySpawner.TestSpawn(worldPosition);
+        
     }
 }

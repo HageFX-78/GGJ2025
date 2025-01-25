@@ -13,12 +13,12 @@ public class BehaviourScriptable : ScriptableObject
 
     protected Coroutine timerCoroutine = null;
     
-    public virtual void Setup(Enemy enemyRef, GameObject target)
+    public virtual void Setup(Enemy attachedEnemy, GameObject target)
     {
-        BehaviourComponentRef = enemyRef.behaviourComponent;
-        EnemyMovementRef = enemyRef.movementComponent;
+        BehaviourComponentRef = attachedEnemy.behaviourComponent;
+        EnemyMovementRef = attachedEnemy.movementComponent;
         TargetPlayerRef = target;
-        EnemyVisual = enemyRef.visualChild;
+        EnemyVisual = attachedEnemy.visualChild;
         
         if (TargetPlayerRef == null)
         {
@@ -41,9 +41,9 @@ public class BehaviourScriptable : ScriptableObject
         
     }
 
-    protected void StartTimer(Action callback, float seconds, bool isRepeating)
+    protected void StartTimer(Action callback, float intervalSeconds, bool isRepeating)
     {
-        timerCoroutine = BehaviourComponentRef.StartCoroutine(TimerCoroutine(callback, seconds, isRepeating));
+        timerCoroutine = BehaviourComponentRef.StartCoroutine(TimerCoroutine(callback, intervalSeconds, isRepeating));
     }
     
     private IEnumerator TimerCoroutine(Action callback, float seconds, bool isRepeating)

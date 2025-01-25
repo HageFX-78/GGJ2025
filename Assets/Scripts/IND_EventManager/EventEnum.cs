@@ -5,4 +5,10 @@ public enum GameEvents
 {
     OnCallCamShake,
     OnPlayerDamaged, // Used for effects currently
+    IncreasePopCount,
+    AltFireSetCD,
+    OnWinGame,
+    OnLoseGame,
+    OnBossSpawn,
+    OnBossDefeated
 }

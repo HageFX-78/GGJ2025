@@ -4,6 +4,8 @@ using UnityEngine;
 public class EnemyCombine : MonoBehaviour, ICombineable
 {
     public EnemyPoolList enemyPoolList;
+
+
     private List<EnemyObjectPool> enemyObjectPool;
 
 
@@ -12,42 +14,50 @@ public class EnemyCombine : MonoBehaviour, ICombineable
         this.enemyObjectPool = enemyPoolList.enemyObjectPool;
     }
 
-
     public float combineSizeMultiplier = 0.7f;
     public void Combine(float enemySize)
     {
         float newEnemySize = 1;
-       
-        //Vector3 oldSize = new Vector3(GetComponent<Enemy>().enemySize, GetComponent<Enemy>().enemySize, GetComponent<Enemy>().enemySize);
+        newEnemySize = (enemySize * combineSizeMultiplier + gameObject.GetComponent<Enemy>().enemySize);
 
-        //TEMP----------------------------------
-        GameObject newEnemy = new GameObject();
-        if (gameObject.GetComponent<Enemy>())
+        float currentSize = GetComponent<Enemy>().enemySize;
+        
+        GameObject newEnemy;
+     
+        if(GetComponent<Enemy>().canCombine)
         {
-            newEnemySize = (enemySize * combineSizeMultiplier + gameObject.GetComponent<Enemy>().enemySize);
-            if (newEnemySize < 2)
+            bool doCreateNewEnemy = false;
+            int newEnemyTier = 1;
+
+            if (newEnemySize > 2 && currentSize < 2)
             {
-                newEnemy = enemyObjectPool[0].GetPooledEnemy(transform.position, transform.rotation);
+                doCreateNewEnemy = true;
+                newEnemyTier = 1;
             }
-            else
+            else if (newEnemySize > 3 && currentSize < 3)
             {
-                newEnemy = enemyObjectPool[1].GetPooledEnemy(transform.position, transform.rotation);
+                doCreateNewEnemy = true;
+                newEnemyTier = 2;
+            }
+            else if (newEnemySize > 4 && currentSize < 4)
+            {
+                doCreateNewEnemy = true;
+                newEnemyTier = 3;
             }
 
+
+            if (doCreateNewEnemy)
+            {
+                newEnemy = enemyObjectPool[newEnemyTier].GetPooledEnemy(transform.position, transform.rotation);
+                newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
+                newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
+                gameObject.SetActive(false);
+
+            }
+
+            GetComponent<Enemy>().SetupEnemy(newEnemySize);
+           
+            //Debug.Log(newEnemySize);
         }
-       
-
-        //newEnemy.GetComponent<Enemy>().enemySize = newEnemySize;
-        //newEnemy.GetComponent<Enemy>().SetupEnemy();
-
-        newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
-        newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
-
-        //newEnemy.GetComponent<Enemy>().SetSize(oldSize, newSize);
-        Debug.Log(newEnemySize);
-        gameObject.SetActive(false);
-
     }
-
-
 }

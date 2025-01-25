@@ -4,32 +4,54 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public EnemyPoolList enemyPoolList;
-    public GameObject player;
+    private GameObject player;
+    
+    public GameManager GameManager => GameManager.Instance;
 
-    [Header("Spawning Enemies")]
-    public int minSpawnAmount = 1;
-    public int maxSpawnAmount = 2;
-
-    [Tooltip("Default = 1.1")]
-    public float minSpawnRange = 1.1f;
-    [Tooltip("Default = 1.1")]
-    public float maxSpawnRange = 1.5f;
-
+    public float spawnRangeMultiplier = 5f;
+    
     [Tooltip("How Long until Next Spawn (in Seconds)")]
     public float spawnRate = 5f;
 
-    public bool isWaveModeEnabled;
     public bool enableSpawning = true;
     private List<EnemyObjectPool> enemyObjectPool;
 
     private Camera mainCamera;
     
     private float spawnTimer = 0;
-    private int currentWave = 1; //TEMP
+    //private int currentWave = 1; //TEMP
 
+    public List<EnemySpawnInfo> enemySpawnInfo;
+
+    [System.Serializable]
+    public class EnemySpawnInfo
+    {
+        public EnemyObjectPool enemyObjectPool;
+       
+        [Tooltip("How rare the enemy can spawn (0.0 - 1)")]
+        public float spawnChance;
+
+        private int spawnAmount;
+        public void UpdateSpawnAmount(int newAmount)
+        {
+            spawnAmount = newAmount;
+
+        }
+        public void UpdateSpawnChance(float newChance)
+        {
+            spawnChance = newChance;
+
+        }
+        public int GetSpawnAmount()
+        { 
+            return spawnAmount; 
+        }
+    }
+    
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+
         spawnRate = spawnRate * 50;
         mainCamera = Camera.main;
         this.enemyObjectPool = enemyPoolList.enemyObjectPool;
@@ -37,59 +59,105 @@ public class EnemySpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(enableSpawning)
+        if(enableSpawning && !GameManager.IS_GAMEOVER)
         {
-            if (spawnTimer <= 0)
-            {
-                Spawn();
-                spawnTimer = spawnRate;
-                currentWave++;
-            }
-            else
-            {
-                spawnTimer--;
-            }
+            SpawnEnemies();
         }
-        
+    }
+
+    private void SpawnEnemies()
+    {
+        if (spawnTimer <= 0)
+        {
+            //Debug.Log("Current Wave: " + currentWave);
+            SetEnemyChance();
+            Spawn();
+            spawnTimer = spawnRate;
+            GameManager.currentWave++;
+        }
+        else
+        {
+            spawnTimer--;
+        }
+
     }
 
     public void Spawn()
     { 
-        //Debug.Log("SPAWN");
-        int spawnAmount = Random.Range(minSpawnAmount, maxSpawnAmount);
-
-        float verticalMod;
-        float horizontalMod;
-
-        if (isWaveModeEnabled) 
+        SetEnemySpawnAmount();
+        
+        for(int i = 0; i < enemySpawnInfo.Count; i++) 
         {
-            spawnAmount = currentWave;
-
-        }
-        else if (!isWaveModeEnabled)
-        {
-            spawnAmount = Random.Range(minSpawnAmount, maxSpawnAmount);
-        }
-
-        for(int i = 0; i < spawnAmount; i++) 
-        {
-            verticalMod = Random.Range(minSpawnRange, maxSpawnRange); // Get Vertical Spawn Pos
-
-            if (Random.Range(0f,1f) < 0.5f) 
+            for (int k = 0; k < enemySpawnInfo[i].GetSpawnAmount(); k++)
             {
-                verticalMod = (verticalMod * -1) * 2f;
-            }
+                Vector2 spawnPosition = GetRandomPositionOutsideViewport();
 
-            horizontalMod = Random.Range(minSpawnRange, maxSpawnRange); // Get Vertical Spawn Pos
-            if (Random.Range(0f, 1f) < 0.5f)
-            {
-                horizontalMod = (horizontalMod * -1) ;
+                enemySpawnInfo[i].enemyObjectPool.GetPooledEnemy(spawnPosition, Quaternion.Euler(0,0,0));
             }
-
-            Vector2 spawnPosition = mainCamera.ViewportToWorldPoint(new Vector3(verticalMod, horizontalMod, mainCamera.nearClipPlane));
-                
-            enemyObjectPool[0].GetPooledEnemy(spawnPosition, Quaternion.Euler(0,0,0));
         }
-            
     }
+
+    private void SetEnemySpawnAmount()
+    {
+        for (int i = 0; i < enemySpawnInfo.Count ; i++)
+        {
+            if (i > 0)
+            {
+                if (Random.value < enemySpawnInfo[i].spawnChance)
+                {
+                    enemySpawnInfo[i].UpdateSpawnAmount(enemySpawnInfo[i].GetSpawnAmount() + 1);
+                    
+                }
+                else
+                {
+                    enemySpawnInfo[0].UpdateSpawnAmount(enemySpawnInfo[0].GetSpawnAmount() + 1);
+
+                }
+            }
+        }
+
+    }
+
+    private void SetEnemyChance()
+    {
+        //SET NEW CHANCES HERE
+
+
+
+
+
+
+    }
+
+    private Vector3 GetRandomPositionOutsideViewport()
+    {
+        // Pick a random side: 0 = top, 1 = bottom, 2 = left, 3 = right
+        int side = Random.Range(0, 4);
+        Vector3 viewportPosition = Vector3.zero;
+
+        switch (side)
+        {
+            case 0: // Top
+                viewportPosition = new Vector3(Random.Range(0f, 1f), 1.1f * spawnRangeMultiplier, 0f);
+                break;
+            case 1: // Bottom
+                viewportPosition = new Vector3(Random.Range(0f, 1f), -0.1f * spawnRangeMultiplier, 0f);
+                break;
+            case 2: // Left
+                viewportPosition = new Vector3(-0.1f * spawnRangeMultiplier, Random.Range(0f, 1f), 0f);
+                break;
+            case 3: // Right
+                viewportPosition = new Vector3(1.1f * spawnRangeMultiplier, Random.Range(0f, 1f), 0f);
+                break;
+        }
+
+        // Convert viewport position to world position
+        return Camera.main.ViewportToWorldPoint(viewportPosition);
+    }
+
+    public void TestSpawn(Vector2 spawnPos)
+    {
+        enemyObjectPool[0].GetPooledEnemy(spawnPos, Quaternion.Euler(0, 0, 0));
+    }
+
 }

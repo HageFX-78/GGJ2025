@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Health : MonoBehaviour, IDamageable
+public class Health : MonoBehaviour, IDamageable, IHeal
 {
     public float health = 1;
 
@@ -12,5 +12,11 @@ public class Health : MonoBehaviour, IDamageable
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Heal(float healAmount) 
+    {
+        health = health + healAmount;
+
     }
 }
