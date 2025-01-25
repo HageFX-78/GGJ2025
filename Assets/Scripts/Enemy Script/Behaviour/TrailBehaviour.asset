@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052c75da294d42afbfb0f58014402d30, type: 3}
+  m_Name: TrailBehaviour
+  m_EditorClassIdentifier: 
+  priority: 3
+  trailPrefab: {fileID: 6215874621632528849, guid: 0e9b6683d47337b44b04fc06b91210db, type: 3}
+  spawnAmount: 10
+  spawnOffset: 1
