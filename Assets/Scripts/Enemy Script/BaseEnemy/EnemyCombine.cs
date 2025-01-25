@@ -17,33 +17,24 @@ public class EnemyCombine : MonoBehaviour, ICombineable
     {
         float newEnemySize = 1;
         newEnemySize = (enemySize * combineSizeMultiplier + gameObject.GetComponent<Enemy>().enemySize);
+
+        float currentSize = GetComponent<Enemy>().enemySize;
         
-
-        //TEMP----------------------------------
         GameObject newEnemy;
-       /* if (gameObject.GetComponent<Enemy>().isActiveAndEnabled)
-        {*/
-        if (newEnemySize < 2)
+     
+        if(GetComponent<Enemy>().canCombine)
         {
-            newEnemy = enemyObjectPool[0].GetPooledEnemy(transform.position, transform.rotation);
+            if (newEnemySize > 2 && currentSize < 2)
+            {
+                newEnemy = enemyObjectPool[1].GetPooledEnemy(transform.position, transform.rotation);
+                newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
+                newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
+                gameObject.SetActive(false);
+            }
+           
+            GetComponent<Enemy>().SetupEnemy(newEnemySize);
+           
+            //Debug.Log(newEnemySize);
         }
-        else
-        {
-            newEnemy = enemyObjectPool[1].GetPooledEnemy(transform.position, transform.rotation);
-        }
-
-        //}
-
-        newEnemy.GetComponent<Enemy>().enemySize = newEnemySize;
-        newEnemy.GetComponent<Enemy>().SetupEnemy();
-
-        newEnemy.GetComponent<Enemy>().SetupEnemy(newEnemySize);
-        newEnemy.GetComponent<Rigidbody2D>().linearVelocity = gameObject.GetComponent<Rigidbody2D>().linearVelocity;
-
-        Debug.Log(newEnemySize);
-        gameObject.SetActive(false);
-
     }
-
-
 }

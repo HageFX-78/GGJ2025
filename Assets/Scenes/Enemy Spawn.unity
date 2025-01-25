@@ -256,6 +256,37 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &1684798349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1684798350}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1684798350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684798349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.7784183, y: -1.3959513, z: -0.09738538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780090860
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,13 +333,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPoolList: {fileID: 11400000, guid: fdb85ef23c299614cb779f9cc518b10d, type: 2}
   player: {fileID: 1830330297}
-  minSpawnAmount: 5
-  maxSpawnAmount: 5
-  minSpawnRange: 1.1
-  maxSpawnRange: 1.5
+  spawnRangeMultiplier: 2
   spawnRate: 5
-  isWaveModeEnabled: 1
   enableSpawning: 1
+  enemySpawnInfo:
+  - enemyObjectPool: {fileID: 11400000, guid: d41041bddd6c41c4db42099216240ba3, type: 2}
+    spawnChance: 0
+  - enemyObjectPool: {fileID: 11400000, guid: 3eb8893339834ec459c104dd463ce064, type: 2}
+    spawnChance: 0.1
 --- !u!1 &1830330297
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,3 +544,4 @@ SceneRoots:
   - {fileID: 1830330299}
   - {fileID: 1978947269}
   - {fileID: 1780090861}
+  - {fileID: 1684798350}
