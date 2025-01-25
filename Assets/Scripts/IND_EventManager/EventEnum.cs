@@ -4,4 +4,5 @@
 public enum GameEvents
 {
     OnCallCamShake,
+    OnPlayerDamaged, // Used for effects currently
 }
