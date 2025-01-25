@@ -31,11 +31,16 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-
+        
     }
 
     private void FixedUpdate()
     {
+        if (player == null)
+        {
+            return;
+        }
+        
         cachedDistanceToPlayer = GetDistanceToPlayer();
 
         if (canMove)

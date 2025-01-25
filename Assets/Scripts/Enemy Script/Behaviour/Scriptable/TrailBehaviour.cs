@@ -48,6 +48,11 @@ namespace Enemy_Script.Behaviour.Scriptable
 
         private void SpawnTrail(float dashDuration)
         {
+            if (BehaviourComponentRef == null)
+            {
+                return;
+            }
+            
             var inverseDirection = -EnemyMovementRef.GetDirectionToPlayerNormalized();
             var spawnInterval = dashDuration / spawnAmount;
             

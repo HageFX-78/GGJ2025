@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TrailBehaviour
   m_EditorClassIdentifier: 
   priority: 3
-  trailPrefab: {fileID: 8308761087185327804, guid: 827fcb16b7431ec4e8d77fd2a8c424d8, type: 3}
+  trailPrefab: {fileID: 6215874621632528849, guid: 0e9b6683d47337b44b04fc06b91210db, type: 3}
   spawnAmount: 10
   spawnOffset: 1

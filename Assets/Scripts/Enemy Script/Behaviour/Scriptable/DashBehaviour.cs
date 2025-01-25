@@ -51,10 +51,6 @@ public class DashBehaviour : BehaviourScriptable
         {
             BehaviourComponentRef.StartCoroutine(CastingDash());
         }
-        else
-        {
-            StopTimer();
-        }
     }
     
     IEnumerator CastingDash()

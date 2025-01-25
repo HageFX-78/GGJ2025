@@ -34,7 +34,10 @@ namespace Enemy_Script.Behaviour.Scriptable
 
         private void ShootProjectile()
         {
-            Shoot(projectilePrefab);
+            if (BehaviourComponentRef)
+            {
+                Shoot(projectilePrefab);
+            }
         }
         
         public void Shoot(GameObject projectile)
