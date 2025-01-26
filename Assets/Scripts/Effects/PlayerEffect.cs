@@ -6,6 +6,7 @@ public class PlayerEffect : MonoBehaviour
 {
     [SerializeField] private GameObject _Sprite;
     [SerializeField] private ParticleSystem _HitParticle;
+    [SerializeField] private GameObject _ChargeParticle;
     private Coroutine movementCoroutine;
     private bool isMoving = false;
     private Vector3 originalScale;
@@ -62,5 +63,31 @@ public class PlayerEffect : MonoBehaviour
         }
         movementCoroutine = null;
         _Sprite.transform.DOScale(originalScale, 0.1f).SetEase(Ease.InOutBounce);
+    }
+
+    public void ToggleChargeParticle(bool isActive)
+    {
+        _ChargeParticle.SetActive(isActive);
+        // Shake pos when charging
+        if(isActive)
+        {
+            //repeat shake
+            _Sprite.transform.DOShakePosition(0.5f, 0.2f, 50, 90, false, true).SetLoops(-1);
+        }
+        // Stop shake
+        else
+        {
+            _Sprite.transform.DOKill();
+            _Sprite.transform.localPosition = Vector3.zero;
+        }
+    }
+
+    public void ChargeBling()
+    {
+        //Play bling effect
+        _Sprite.transform.DOScale(originalScale * 1.5f, 0.5f).SetEase(Ease.InOutBounce).OnComplete(() =>
+        {
+            _Sprite.transform.DOScale(originalScale, 0.5f).SetEase(Ease.InOutBounce);
+        });
     }
 }

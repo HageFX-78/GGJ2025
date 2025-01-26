@@ -12,7 +12,7 @@ public class EnemyEffect : MonoBehaviour
 
     private ParticleSystem.MainModule _fizzParticleMain;
     private ParticleSystem.ShapeModule _fizzParticleShape;
-    void Start()
+    void OnEnable()
     {
         _fizzParticleMain = _FizzParticle.GetComponent<ParticleSystem>().main;
         _fizzParticleShape = _FizzParticle.GetComponent<ParticleSystem>().shape;
