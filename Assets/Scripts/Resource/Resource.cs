@@ -6,8 +6,10 @@ public class Resource : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("AA");
         if (other.gameObject.CompareTag("Player"))
         {
+           
             other.gameObject.GetComponent<IHeal>()?.Heal(healthGained);
             Destroy(gameObject);
         }

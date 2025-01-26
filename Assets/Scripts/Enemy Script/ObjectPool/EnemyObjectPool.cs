@@ -42,7 +42,7 @@ public class EnemyObjectPool : ScriptableObject
             obj.SetActive(false);
             spawnedEnemies.Enqueue(obj);
         }
-        
+        //
     }
 
     public GameObject GetPooledEnemy(Vector2 position, Quaternion rotation)
