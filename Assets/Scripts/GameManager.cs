@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         AudioManager.PlayBGM(EAudio.GameBGM);
         Cursor.visible = false;
    

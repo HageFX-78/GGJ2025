@@ -2,7 +2,6 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.FilePathAttribute;
 
 public class EnemyMovement : MonoBehaviour
 {

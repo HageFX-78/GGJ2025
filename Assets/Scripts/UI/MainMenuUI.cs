@@ -8,6 +8,7 @@ public class MainMenuUI : MonoBehaviour
 {
     public void Start()
     {
+        Time.timeScale = 1;
         AudioManager.PlayBGM(EAudio.MenuBGM);
     }
 

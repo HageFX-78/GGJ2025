@@ -1,7 +1,5 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Video;
 
 public class NewPlayerHPUi : MonoBehaviour
 {
