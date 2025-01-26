@@ -18,13 +18,7 @@ public class Health : MonoBehaviour, IDamageable, IHeal
             if(health <= 0 && !isDead)
             {
                 isDead = true;
-                // 
-                //
-                //
-                //TRIGGER DEATH STUFF HERE
-                //
-                //
-                //
+                EventManager.FireEvent(GameEvents.OnPlayerDeathStart);
             }
         }
 

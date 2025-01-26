@@ -101,6 +101,7 @@ public class ShootProjectile : MonoBehaviour
         {
             rb.linearVelocity = projectileTransform.right * projectileSpeed;
         }
+        EventManager.FireEvent(GameEvents.OnCallCamShake, ECameraProfile.PlayerShoot);
     }
 
     public void AltShoot(Transform projectileTransform)

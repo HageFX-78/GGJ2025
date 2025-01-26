@@ -14,16 +14,19 @@ public class GlobalVolumeEffect : MonoBehaviour
 
     public void Start()
     {        
-        EventManager.ConnectEvent(GameEvents.OnPlayerDamaged, PlayerDamaged);
 
         v = GetComponent<Volume>();
         v.profile.TryGet(out chromaticAberration);
         v.profile.TryGet(out bloom);
         v.profile.TryGet(out vignette);
+
+        EventManager.ConnectEvent(GameEvents.OnPlayerDamaged, PlayerDamaged);
+        EventManager.ConnectEvent(GameEvents.OnPlayerDeathStart, SetVignetteToMax);
     }
     public void OnDestroy()
     {
         EventManager.DisconnectEvent(GameEvents.OnPlayerDamaged, PlayerDamaged);
+        EventManager.DisconnectEvent(GameEvents.OnPlayerDeathStart, SetVignetteToMax);
     }
 
     public void PlayerDamaged()
@@ -42,5 +45,11 @@ public class GlobalVolumeEffect : MonoBehaviour
     public void SetVignetteBaseOnHp(float hp)
     {
         vignette.intensity.value = Mathf.Lerp(1.0f, 0f, hp);
+    }
+
+    public void SetVignetteToMax()
+    {
+        //Tween
+        DOTween.To(() => vignette.intensity.value, x => vignette.intensity.value = x, 0.9f, 0.8f);
     }
 }

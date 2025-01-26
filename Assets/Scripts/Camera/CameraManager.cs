@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class CameraManager : MonoBehaviour
 {
@@ -32,12 +34,13 @@ public class CameraManager : MonoBehaviour
     public void Start()
     {
         InitializeShakeProfileDict();
-        
         EventManager.ConnectEvent(GameEvents.OnCallCamShake, ShakeCameraAction);
+        EventManager.ConnectEvent(GameEvents.OnPlayerDeathStart, DeathCamera);
     }
     public void OnDestroy()
     {
         EventManager.DisconnectEvent(GameEvents.OnCallCamShake, ShakeCameraAction);
+        EventManager.DisconnectEvent(GameEvents.OnPlayerDeathStart, DeathCamera);
     }
 
     private void InitializeShakeProfileDict()
@@ -90,5 +93,10 @@ public class CameraManager : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    public void DeathCamera()
+    {
+        _cinemachineCam.Lens.OrthographicSize = 4;
     }
 }

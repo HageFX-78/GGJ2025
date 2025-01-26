@@ -11,5 +11,6 @@ public enum GameEvents
     OnLoseGame,
     OnBossSpawn,
     OnBossDefeated,
-    OnWaveUpdate
+    OnWaveUpdate,
+    OnPlayerDeathStart
 }
