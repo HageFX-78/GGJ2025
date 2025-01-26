@@ -6,8 +6,7 @@ public class Crosshair : MonoBehaviour
 
     void Start()
     {
-        //Set Cursor to not be visible
-        Cursor.visible = false;
+        
     }
     // Update is called once per frame
     void Update()
@@ -15,4 +14,5 @@ public class Crosshair : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane + 2));
     }
+        
 }
