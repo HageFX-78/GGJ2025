@@ -7,6 +7,7 @@ public class Health : MonoBehaviour, IDamageable, IHeal
 
     private bool isDead = false;
 
+    public GameObject healthResource;
 
     public void Damage(float healthDamage)
     {
@@ -46,7 +47,14 @@ public class Health : MonoBehaviour, IDamageable, IHeal
                     Invoke("InvokeDeath", 1.0f);
                     EventManager.FireEvent(GameEvents.IncreasePopCount);
                 }
-                
+
+                if (Random.value < 0.23)
+                {
+                    Instantiate(healthResource, gameObject.transform.position, gameObject.transform.rotation);
+                }
+               
+
+
             }
             else
             {
@@ -75,7 +83,16 @@ public class Health : MonoBehaviour, IDamageable, IHeal
 
     public void Heal(float healAmount) 
     {
-        health = health + healAmount;
+        if(gameObject.CompareTag("Player"))
+        {
+            Debug.Log("HEAL!");
+            health = health + healAmount;
 
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
+
+        }
     }
 }

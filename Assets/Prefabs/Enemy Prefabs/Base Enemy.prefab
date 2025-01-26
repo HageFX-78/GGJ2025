@@ -9988,6 +9988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  healthResource: {fileID: 5108772761967813813, guid: e988081037624e3449165a4f41d4e04c, type: 3}
 --- !u!114 &5615970060168066394
 MonoBehaviour:
   m_ObjectHideFlags: 0

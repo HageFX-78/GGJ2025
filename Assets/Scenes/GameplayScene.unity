@@ -2705,7 +2705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495564005ac884241827db05e575de12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removeTime: 15
+  removeTime: 30
 --- !u!20 &163412696473468653
 Camera:
   m_ObjectHideFlags: 0
