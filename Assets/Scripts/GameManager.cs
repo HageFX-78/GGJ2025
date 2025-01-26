@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
+   
         EventManager.ConnectEvent(GameEvents.OnWinGame, HandleOnWinGame);
         EventManager.ConnectEvent(GameEvents.OnLoseGame, HandleOnLoseGame);
         EventManager.ConnectEvent(GameEvents.OnBossSpawn, HandleOnBossSpawn);
@@ -53,12 +55,14 @@ public class GameManager : MonoBehaviour
     {
         IS_GAMEOVER = true;
         winPanel.SetActive(true);
+        Cursor.visible = true;
     }
 
     private void HandleOnLoseGame()
     {
         IS_GAMEOVER = true;
         losePanel.SetActive(true);
+        Cursor.visible = true;
     }
 
     private void HandleOnBossSpawn()

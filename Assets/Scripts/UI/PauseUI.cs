@@ -19,6 +19,7 @@ public class PauseUI : MonoBehaviour
     public void TogglePause()
     {
         isPaused = !isPaused;
+        Cursor.visible = isPaused;
         pauseCanvas.SetActive(isPaused);
         Time.timeScale = isPaused ? 0.0f : 1.0f;
     }
