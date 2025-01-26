@@ -952,6 +952,14 @@ PrefabInstance:
       propertyPath: virtualMachine
       value: 
       objectReference: {fileID: 1488178457}
+    - target: {fileID: 2334672734666459582, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2334672734666459582, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8925326343338142508, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       propertyPath: m_Name
       value: Player
