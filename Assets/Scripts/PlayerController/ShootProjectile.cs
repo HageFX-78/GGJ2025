@@ -102,6 +102,7 @@ public class ShootProjectile : MonoBehaviour
             rb.linearVelocity = projectileTransform.right * projectileSpeed;
         }
         EventManager.FireEvent(GameEvents.OnCallCamShake, ECameraProfile.PlayerShoot);
+        AudioManager.PlaySFXPitchVaried(EAudio.playerShoot);
     }
 
     public void AltShoot(Transform projectileTransform)
@@ -112,5 +113,6 @@ public class ShootProjectile : MonoBehaviour
         {
             rb.linearVelocity = projectileTransform.right * projectile2Speed;
         }
+        AudioManager.PlaySFXPitchVaried(EAudio.dash, 0.15f);
     }
 }

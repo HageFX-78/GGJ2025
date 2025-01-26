@@ -426,18 +426,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
-      propertyPath: spawnRate
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
-      propertyPath: enableSpawning
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
-      propertyPath: enemySpawnInfo.Array.data[1].spawnChance
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 4785876162703058117, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
       propertyPath: m_Name
       value: Enemy Spawn Manager
@@ -900,6 +888,7 @@ MonoBehaviour:
   bossKilled: 0
   bossModeActivated: 0
   IS_GAMEOVER: 0
+  bossIndicator: {fileID: 1794868209}
   winPanel: {fileID: 382938238}
   losePanel: {fileID: 38448153}
 --- !u!4 &636007363
@@ -1776,14 +1765,6 @@ PrefabInstance:
       propertyPath: virtualMachine
       value: 
       objectReference: {fileID: 1488178457}
-    - target: {fileID: 2334672734666459582, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2334672734666459582, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8925326343338142508, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1917,6 +1898,11 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &1794868209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1228301965331050252, guid: 8d0220422fe356b44b3521f7c14de60d, type: 3}
+  m_PrefabInstance: {fileID: 961538409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1807319947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,11 +1960,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You are an indigestion medicine.
+  m_text: 'You are an indigestion medicine task to cleanse toxic acidic bubbles
 
 
-    You are Tasked to Destroy 3 Gastric
-    Overload
+    Destroy
+    3 Gastric Overlord
 
 
     Good Luck. '
@@ -2678,7 +2664,7 @@ Transform:
   m_GameObject: {fileID: 2127176991}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9802, y: -13.83, z: -0.14131}
+  m_LocalPosition: {x: 1.9, y: -13.83, z: -0.14131}
   m_LocalScale: {x: 0.53331, y: 0.53331, z: 0.53331}
   m_ConstrainProportionsScale: 0
   m_Children:

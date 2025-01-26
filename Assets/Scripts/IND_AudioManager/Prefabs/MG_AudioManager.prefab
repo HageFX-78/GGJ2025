@@ -1603,10 +1603,60 @@ MonoBehaviour:
   sfxGroup: {fileID: 8992624010681076045, guid: 5b2495adb7dd5f64ba4bc270ee93fb8d, type: 2}
   sfxPoolSize: 20
   audioClampMaxSteps: 10
-  BGM: []
+  BGM:
+  - name: GameBGM
+    category: 0
+    clip: {fileID: 8300000, guid: c217dd169ea67e24199ec4ce4a99bb13, type: 3}
+    volume: 1
+    pitch: 1
+  - name: MenuBGM
+    category: 0
+    clip: {fileID: 8300000, guid: 40c9c461a951fe449b90503a4bdb9dab, type: 3}
+    volume: 1
+    pitch: 1
   SFX:
   - groupName: General
-    groupAudio: []
+    groupAudio:
+    - name: dash
+      category: 0
+      clip: {fileID: 8300000, guid: 277ad4905587acd4f8578328bbdb245f, type: 3}
+      volume: 1
+      pitch: 1
+    - name: enemyGetHit
+      category: 0
+      clip: {fileID: 8300000, guid: 202ea5b31ffc5264face176bdf38161e, type: 3}
+      volume: 1
+      pitch: 1
+    - name: OnDeathBig
+      category: 0
+      clip: {fileID: 8300000, guid: e50626df569f32f40976b85333475208, type: 3}
+      volume: 1
+      pitch: 1
+    - name: OnDeathBig2
+      category: 0
+      clip: {fileID: 8300000, guid: c0378ea47c112184ebd29e382874242b, type: 3}
+      volume: 1
+      pitch: 1
+    - name: onDeathDefault
+      category: 0
+      clip: {fileID: 8300000, guid: 4ee5a1bd7e427ee48be18d3f4660031d, type: 3}
+      volume: 1
+      pitch: 1
+    - name: onDeathDefault2
+      category: 0
+      clip: {fileID: 8300000, guid: 31ad555e51f602042a1c09cfc9b635f5, type: 3}
+      volume: 1
+      pitch: 1
+    - name: playerGetHit
+      category: 0
+      clip: {fileID: 8300000, guid: f587b238f8655154eb9f50c0aa19b0bc, type: 3}
+      volume: 1
+      pitch: 1
+    - name: playerShoot
+      category: 0
+      clip: {fileID: 8300000, guid: fd2d84dc9a008884a8884c8414fd245d, type: 3}
+      volume: 1
+      pitch: 1
 --- !u!1 &5588845128575811537
 GameObject:
   m_ObjectHideFlags: 0

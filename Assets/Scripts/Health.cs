@@ -14,6 +14,7 @@ public class Health : MonoBehaviour, IDamageable, IHeal
         health = health - healthDamage;
         if (gameObject.CompareTag("Player"))
         {
+            AudioManager.PlaySFXPitchVaried(EAudio.playerGetHit);
             EventManager.FireEvent(GameEvents.OnPlayerDamaged, health);
             Debug.Log("PLAYER HEALTH: " + health);
             if(health <= 0 && !isDead)
@@ -25,6 +26,7 @@ public class Health : MonoBehaviour, IDamageable, IHeal
 
         if (gameObject.CompareTag("Enemy"))
         {
+            AudioManager.PlaySFXPitchVaried(EAudio.enemyGetHit);
             if (health <= 0 && !isDead)
             {
                 isDead = true;
@@ -39,6 +41,7 @@ public class Health : MonoBehaviour, IDamageable, IHeal
                    
                     Invoke("InvokeDeath", 2.0f);
                     EventManager.FireEvent(GameEvents.IncreasePopCount);
+                    AudioManager.PlaySFXPitchVaried(EAudio.OnDeathBig);
                 }
                 else
                 {
@@ -46,6 +49,8 @@ public class Health : MonoBehaviour, IDamageable, IHeal
                    
                     Invoke("InvokeDeath", 1.0f);
                     EventManager.FireEvent(GameEvents.IncreasePopCount);
+                    AudioManager.PlaySFXPitchVaried(EAudio.onDeathDefault);
+
                 }
 
                 if (Random.value < 0.23)
@@ -86,6 +91,7 @@ public class Health : MonoBehaviour, IDamageable, IHeal
         if(gameObject.CompareTag("Player"))
         {
             Debug.Log("HEAL!");
+            AudioManager.PlaySFXPitchVaried(EAudio.OnDeathBig, 0.15f);
             health = health + healAmount;
 
             if (health > maxHealth)

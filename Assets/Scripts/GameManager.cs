@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public bool bossModeActivated = false;
     public bool IS_GAMEOVER = false;
 
+    [Header("Boss UI")]
+    [SerializeField] private GameObject bossIndicator;
+    
     [Header("Win Lose Panel")]
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject losePanel;
@@ -30,10 +33,12 @@ public class GameManager : MonoBehaviour
         
         winPanel.SetActive(false);
         losePanel.SetActive(false);
+        bossIndicator.SetActive(bossModeActivated);
     }
 
     private void Start()
     {
+        AudioManager.PlayBGM(EAudio.GameBGM);
         Cursor.visible = false;
    
         EventManager.ConnectEvent(GameEvents.OnWinGame, HandleOnWinGame);
@@ -67,15 +72,16 @@ public class GameManager : MonoBehaviour
 
     private void HandleOnBossSpawn()
     {
-        bossModeActivated = true;
         //Debug.Log("BOSS MODE ENABLED, NO MORE SPAWNING");
+        bossIndicator.SetActive(true);
+        bossModeActivated = true;
     }
 
     private void HandleOnBossDefeat()
     {
-        bossModeActivated = false;
         //Debug.Log("BOSS MODE DISABLED, RESUME SPAWNING");
-
+        bossIndicator.SetActive(false);
+        bossModeActivated = false;
         bossKilled++;
     }
 }

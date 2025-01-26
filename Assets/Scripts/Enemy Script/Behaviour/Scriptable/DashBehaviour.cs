@@ -58,7 +58,7 @@ public class DashBehaviour : BehaviourScriptable
         //during cast time, pause movement and shake visual
         EnemyMovementRef.PauseMovement(castTime + dashDuration);
         EnemyVisual.transform.DOShakePosition(castTime, strength, vibrato, randomness, snapping, fadeOut, shakeMode);
-        
+        AudioManager.PlaySFXPitchVaried(EAudio.dash);
         yield return new WaitForSeconds(castTime);
         var directionalForce = EnemyMovementRef.CalculateDirectionalForce(EnemyMovementRef.GetDirectionToPlayerNormalized());
         EnemyMovementRef.enemyRigidBody.AddForce(
