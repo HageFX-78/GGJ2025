@@ -177,6 +177,10 @@ PrefabInstance:
       value: Particle_Charge
       objectReference: {fileID: 0}
     - target: {fileID: 5409436878667904556, guid: b339ee6fae6b5d548a589a61d8a77d00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409436878667904556, guid: b339ee6fae6b5d548a589a61d8a77d00, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -330,8 +334,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: spawnRangeMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
       propertyPath: enemySpawnInfo.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[0].spawnChance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[1].spawnChance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[2].spawnChance
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
       propertyPath: enemySpawnInfo.Array.data[0].enemyObjectPool
@@ -567,6 +587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWave: 1
   bossKilled: 0
+  bossModeActivated: 0
   IS_GAMEOVER: 0
 --- !u!4 &636007363
 Transform:
@@ -618,7 +639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 107.84, y: -240.7}
+  m_AnchoredPosition: {x: 107.84009, y: -240.69995}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &722464958
@@ -726,7 +747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 869671986}
   - component: {fileID: 869671987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1405,6 +1426,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle_BubblePop
       objectReference: {fileID: 0}
+    - target: {fileID: 5409436878667904556, guid: b339ee6fae6b5d548a589a61d8a77d00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1798,6 +1823,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3417712691615936731, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760527658318897485, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7153543931737018965, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       propertyPath: moveSpeed
       value: 5
@@ -1813,6 +1846,10 @@ PrefabInstance:
     - target: {fileID: 8925326343338142508, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925326343338142508, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9177262843761047959, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2082,6 +2119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7cd22e8f81a4b46b114464608d77db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 1
   health: 1
 --- !u!1001 &2078338944
 PrefabInstance:
@@ -2729,7 +2767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9177262842825900562}
   - component: {fileID: 9177262842825900563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerSprite
   m_TagString: Player
   m_Icon: {fileID: 0}

@@ -102,19 +102,13 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < enemySpawnInfo.Count ; i++)
         {
-            /*if (i > 0)
-            {*/
+            
             if (Random.value < enemySpawnInfo[i].spawnChance)
             {
                 enemySpawnInfo[i].UpdateSpawnAmount(enemySpawnInfo[i].GetSpawnAmount() + 1);
                     
             }
-              /*  else
-                {
-                    enemySpawnInfo[0].UpdateSpawnAmount(enemySpawnInfo[0].GetSpawnAmount() + 1);
-
-                }
-            }*/
+         
         }
 
     }
