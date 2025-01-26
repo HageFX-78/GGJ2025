@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &38448153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6879145869779991622, guid: 8d0220422fe356b44b3521f7c14de60d, type: 3}
+  m_PrefabInstance: {fileID: 961538409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &52760068 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6052646280821362459, guid: 788743cb9e125174dba97d220d136bba, type: 3}
@@ -181,6 +186,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+--- !u!1 &382938238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7509443367569747578, guid: 8d0220422fe356b44b3521f7c14de60d, type: 3}
+  m_PrefabInstance: {fileID: 961538409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &502002440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +402,8 @@ MonoBehaviour:
   bossKilled: 0
   bossModeActivated: 0
   IS_GAMEOVER: 0
+  winPanel: {fileID: 382938238}
+  losePanel: {fileID: 38448153}
 --- !u!4 &636007363
 Transform:
   m_ObjectHideFlags: 0
