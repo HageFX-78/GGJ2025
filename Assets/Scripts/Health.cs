@@ -37,13 +37,14 @@ public class Health : MonoBehaviour, IDamageable, IHeal
                     gameObject.GetComponent<EnemyEffect>().DisplayDeathSequence();
                    
                     Invoke("InvokeDeath", 2.0f);
-
+                    EventManager.FireEvent(GameEvents.IncreasePopCount);
                 }
                 else
                 {
                     gameObject.GetComponent<EnemyEffect>().Explode(false);
                    
                     Invoke("InvokeDeath", 1.0f);
+                    EventManager.FireEvent(GameEvents.IncreasePopCount);
                 }
                 
             }

@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
     
     [Header("Current Stats")]
-    public int currentWave = 1;
+    public int currentWave = 0;
     public int bossKilled = 0;
     public bool bossModeActivated = false;
 

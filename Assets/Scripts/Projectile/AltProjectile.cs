@@ -30,7 +30,6 @@ public class AltProjectile : MonoBehaviour
             if (destroy)
             {
                 Destroy(gameObject);
-                EventManager.FireEvent(GameEvents.IncreasePopCount);
             }
             else
             {

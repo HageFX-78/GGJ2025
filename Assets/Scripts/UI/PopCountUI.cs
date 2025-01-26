@@ -17,7 +17,7 @@ public class PopCountUI : MonoBehaviour
     public void IncreasePopCount()
     {
         popCount++;
-        _popCount.text = $"Bubbles Popped{popCount.ToString()}";
+        _popCount.text = $"Bubbles Popped: {popCount.ToString()}";
     }
 
     private void OnDestroy()

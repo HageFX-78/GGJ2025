@@ -17,7 +17,6 @@ public class PrimaryProjectile : MonoBehaviour
             other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
             other.gameObject.GetComponent<EnemyEffect>()?.DisplayHitParticles(other.transform.position - transform.position);
             Invoke(nameof(DestroyBullet), 0.1f);
-            EventManager.FireEvent(GameEvents.IncreasePopCount);
         }
     } 
 
