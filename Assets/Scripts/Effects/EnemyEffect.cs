@@ -59,7 +59,7 @@ public class EnemyEffect : MonoBehaviour
         _Sprite.transform.localScale = Vector3.one;
     }
 
-    void DisplayHitParticles(Vector3 hitDirection)
+    public void DisplayHitParticles(Vector3 hitDirection)
     {
         _HitParticlePivot.transform.rotation = Quaternion.LookRotation(hitDirection);
         _HitParticleSystem.gameObject.SetActive(true);

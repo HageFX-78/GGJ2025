@@ -16,9 +16,8 @@ public class PrimaryProjectile : MonoBehaviour
         {
             other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
             //destroyBullet();
-            Invoke("destroyBullet", 0.1f);
-            
-
+            other.gameObject.GetComponent<EnemyEffect>()?.DisplayHitParticles(other.transform.position - transform.position);
+            Invoke("destroyBullet", 0.1f);    
         }
     } 
 

@@ -25,7 +25,8 @@ public class AltProjectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<IDamageable>()?.Damage(damage);            
+            other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
+            other.gameObject.GetComponent<EnemyEffect>()?.DisplayHitParticles(other.transform.position - transform.position);            
             if (destroy)
             {
                 Destroy(gameObject);

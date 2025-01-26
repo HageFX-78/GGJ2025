@@ -10,5 +10,5 @@ public enum GameEvents
     OnWinGame,
     OnLoseGame,
     OnBossSpawn,
-    OnBossDefeated
+    OnBossDefeated,
 }

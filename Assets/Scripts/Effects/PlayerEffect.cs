@@ -34,7 +34,6 @@ public class PlayerEffect : MonoBehaviour
         _HitParticle.Play();
         //Might add more here
         EventManager.FireEvent(GameEvents.OnCallCamShake, ECameraProfile.PlayerPop);
-        EventManager.FireEvent(GameEvents.OnPlayerDamaged);
     }
 
     // Suishstretch when moving but return to normal when stop
