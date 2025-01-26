@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 980149422985322378}
   - component: {fileID: 2825206093811720081}
   - component: {fileID: 1885055929402681569}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle_Pop (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4911,7 +4911,7 @@ GameObject:
   - component: {fileID: 8369563980543088036}
   - component: {fileID: 737229604500717465}
   - component: {fileID: 1701702250336604044}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle_Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9819,7 +9819,7 @@ GameObject:
   - component: {fileID: 6344441054754589961}
   - component: {fileID: 5615970060168066394}
   - component: {fileID: 8530353942299224536}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -9922,8 +9922,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645cca9853c88f841bf91c71ea884757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
   canCombine: 0
   enemySize: 1
+  isABoss: 0
   behaviourComponent: {fileID: 0}
   movementComponent: {fileID: 0}
   visualChild: {fileID: 0}
@@ -9970,6 +9972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPoolList: {fileID: 11400000, guid: fdb85ef23c299614cb779f9cc518b10d, type: 2}
+  gameManager: {fileID: 0}
   combineSizeMultiplier: 0.1
 --- !u!114 &6344441054754589961
 MonoBehaviour:
@@ -9983,6 +9986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7cd22e8f81a4b46b114464608d77db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 1
   health: 1
 --- !u!114 &5615970060168066394
 MonoBehaviour:
@@ -10025,7 +10029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8823164705709773967}
   - component: {fileID: 1192296792134244898}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10109,7 +10113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1428878663735589922}
   - component: {fileID: 3124907048106810187}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10176,7 +10180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3307361108662132246}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitParticlePivot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10210,7 +10214,7 @@ GameObject:
   - component: {fileID: 1378706162033216022}
   - component: {fileID: 4213892719565104755}
   - component: {fileID: 3262809363590765840}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle_Fizzle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15042,7 +15046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8180555962350247142}
   - component: {fileID: 5039572840146029531}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

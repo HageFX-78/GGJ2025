@@ -7,12 +7,19 @@ public class PlayerEffect : MonoBehaviour
     [SerializeField] private GameObject _Sprite;
     [SerializeField] private ParticleSystem _HitParticle;
     [SerializeField] private GameObject _ChargeParticle;
+    [SerializeField] private Animator _Animator;
     private Coroutine movementCoroutine;
     private bool isMoving = false;
     private Vector3 originalScale;
     void Start()
     {
         originalScale = _Sprite.transform.localScale;
+        EventManager.ConnectEvent(GameEvents.OnPlayerDeathStart, Death);
+    }
+
+    void OnDisable()
+    {
+        EventManager.DisconnectEvent(GameEvents.OnPlayerDeathStart, Death);
     }
 
     void ShootEffect()
@@ -87,6 +94,17 @@ public class PlayerEffect : MonoBehaviour
         _Sprite.transform.DOScale(originalScale * 1.5f, 0.5f).SetEase(Ease.InOutBounce).OnComplete(() =>
         {
             _Sprite.transform.DOScale(originalScale, 0.5f).SetEase(Ease.InOutBounce);
+        });
+    }
+
+    public void Death()
+    {
+        // Play death effect
+        _Sprite.transform.DOScale(originalScale * 2f, 0.8f).SetEase(Ease.InOutBounce);
+        _Sprite.transform.DOShakePosition(1f, 0.2f, 50, 90, false, true).OnComplete(() =>
+        {
+            _Animator.SetTrigger("Dies");
+            EventManager.FireEvent(GameEvents.OnLoseGame);
         });
     }
 }

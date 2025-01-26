@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7515617737590209101}
   - component: {fileID: 10600370801111816}
+  - component: {fileID: 7103383092005823689}
   m_Layer: 6
   m_Name: PlayerSprite
   m_TagString: Player
@@ -87,6 +88,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7103383092005823689
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884977268241889335}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64a5b74e8472e274eae88a1e82da7071, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2801309645825455300
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +604,7 @@ MonoBehaviour:
   _Sprite: {fileID: 884977268241889335}
   _HitParticle: {fileID: 2674745761163820039}
   _ChargeParticle: {fileID: 1578093101680881291}
+  _Animator: {fileID: 7103383092005823689}
 --- !u!58 &2126608721740144274
 CircleCollider2D:
   m_ObjectHideFlags: 0
