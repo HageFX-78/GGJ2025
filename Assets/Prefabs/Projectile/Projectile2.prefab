@@ -346,7 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 5
   damage: 2
-  penetrationPow: 4
+  penetrationPow: 8
 --- !u!1 &8952579763349847864
 GameObject:
   m_ObjectHideFlags: 0

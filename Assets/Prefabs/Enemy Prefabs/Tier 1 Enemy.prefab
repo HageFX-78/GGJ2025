@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1328832764901670881, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: enemyMaxSpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1328832764901670881, guid: f450a43b993bee84dae2d5dc07d213d5, type: 3}
       propertyPath: enemyAcceleration
