@@ -172,6 +172,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: spawnRate
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enableSpawning
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[1].spawnChance
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4785876162703058117, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
       propertyPath: m_Name
       value: Enemy Spawn Manager

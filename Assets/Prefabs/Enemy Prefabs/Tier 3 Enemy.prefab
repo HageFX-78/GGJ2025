@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 496988346486463204, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: enemyMaxSpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 880768459310461616, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: m_Enabled
@@ -21,12 +21,16 @@ PrefabInstance:
       value: Tier 3 Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3034828089536489040, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034828089536489040, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: isABoss
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3034828089536489040, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: enemySize
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5521032269936322572, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: health
@@ -67,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 6447660553396768863, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: 'behavioursToAttach.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 80f46ed7aaf29ab4caab4fd5f1eafff6, type: 2}
+      objectReference: {fileID: 11400000, guid: 1060b4089299b4e408a97817f61dfbac, type: 2}
     - target: {fileID: 6447660553396768863, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: 'behavioursToAttach.Array.data[2]'
       value: 

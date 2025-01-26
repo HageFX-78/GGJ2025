@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7ecc3d9ddb78c4391af5ee030810b8, type: 3}
-  m_Name: DashBehaviour
+  m_Name: DashBehaviourTier3
   m_EditorClassIdentifier: 
   priority: 2
   castTime: 2
-  dashForce: 1
+  dashForce: 30
   dashDuration: 1
   dashCooldown: 2
   dashForceMode: 1

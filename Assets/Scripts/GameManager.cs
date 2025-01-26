@@ -58,13 +58,13 @@ public class GameManager : MonoBehaviour
     private void HandleOnBossSpawn()
     {
         bossModeActivated = true;
-        Debug.Log("BOSS MODE ENABLED, NO MORE SPAWNING");
+        //Debug.Log("BOSS MODE ENABLED, NO MORE SPAWNING");
     }
 
     private void HandleOnBossDefeat()
     {
         bossModeActivated = false;
-        Debug.Log("BOSS MODE DISABLED, RESUME SPAWNING");
+        //Debug.Log("BOSS MODE DISABLED, RESUME SPAWNING");
 
         bossKilled++;
     }
