@@ -6,6 +6,7 @@ using System.Collections;
 [RequireComponent(typeof(BehaviourComponent))]
 public class Enemy : MonoBehaviour
 {
+    public float damage = 1f;
     public bool canCombine = false;
     public float enemySize = 1;
     public bool isABoss = false;
@@ -42,6 +43,7 @@ public class Enemy : MonoBehaviour
     {
         gameObject.transform.localScale = new Vector3(enemySize, enemySize, enemySize);
         gameObject.GetComponent<Health>().ResetHealth();
+        gameObject.GetComponent<CircleCollider2D>().enabled = true;
     }
 
     public void SetSize(float newSize)
@@ -93,7 +95,7 @@ public class Enemy : MonoBehaviour
         visualChild = GetComponentInChildren<SpriteRenderer>().gameObject;
     }
 
-    public void OnColliderEnter2D(Collider2D collision)
+   /* public void OnColliderEnter2D(Collider2D collision)
     {
         Debug.Log("Collision");
         // If player apply health dmg and die
@@ -102,5 +104,5 @@ public class Enemy : MonoBehaviour
             collision.GetComponent<Health>().Damage(gameObject.GetComponent<Health>().health);
             gameObject.GetComponent<Health>().Damage(999); // Suicide
         }
-    }
+    }*/
 }

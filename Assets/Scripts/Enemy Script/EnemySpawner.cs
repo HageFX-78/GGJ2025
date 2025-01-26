@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
     public EnemyPoolList enemyPoolList;
     private GameObject player;
     
-    public GameManager gameManager;
+    private GameManager gameManager;
 
     public float spawnRangeMultiplier = 5f;
     
@@ -102,19 +102,19 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < enemySpawnInfo.Count ; i++)
         {
-            if (i > 0)
+            /*if (i > 0)
+            {*/
+            if (Random.value < enemySpawnInfo[i].spawnChance)
             {
-                if (Random.value < enemySpawnInfo[i].spawnChance)
-                {
-                    enemySpawnInfo[i].UpdateSpawnAmount(enemySpawnInfo[i].GetSpawnAmount() + 1);
+                enemySpawnInfo[i].UpdateSpawnAmount(enemySpawnInfo[i].GetSpawnAmount() + 1);
                     
-                }
-                else
+            }
+              /*  else
                 {
                     enemySpawnInfo[0].UpdateSpawnAmount(enemySpawnInfo[0].GetSpawnAmount() + 1);
 
                 }
-            }
+            }*/
         }
 
     }
@@ -139,16 +139,16 @@ public class EnemySpawner : MonoBehaviour
         switch (side)
         {
             case 0: // Top
-                viewportPosition = new Vector3(Random.Range(0f, 1f), 1.1f * spawnRangeMultiplier, 0f);
+                viewportPosition = new Vector3(Random.Range(0f, 1f * spawnRangeMultiplier), 1.1f , 0f);
                 break;
             case 1: // Bottom
-                viewportPosition = new Vector3(Random.Range(0f, 1f), -0.1f * spawnRangeMultiplier, 0f);
+                viewportPosition = new Vector3(Random.Range(0f, 1f * spawnRangeMultiplier), -0.1f, 0f);
                 break;
             case 2: // Left
-                viewportPosition = new Vector3(-0.1f * spawnRangeMultiplier, Random.Range(0f, 1f), 0f);
+                viewportPosition = new Vector3(-0.1f, Random.Range(0f, 1f * spawnRangeMultiplier), 0f);
                 break;
             case 3: // Right
-                viewportPosition = new Vector3(1.1f * spawnRangeMultiplier, Random.Range(0f, 1f), 0f);
+                viewportPosition = new Vector3(1.1f, Random.Range(0f, 1f * spawnRangeMultiplier), 0f);
                 break;
         }
 

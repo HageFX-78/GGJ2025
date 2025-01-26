@@ -168,8 +168,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: spawnRangeMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
       propertyPath: enemySpawnInfo.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[0].spawnChance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[1].spawnChance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
+      propertyPath: enemySpawnInfo.Array.data[2].spawnChance
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4057906456770745711, guid: 1a5b79274cfd93742973e316b18a6e3d, type: 3}
       propertyPath: enemySpawnInfo.Array.data[0].enemyObjectPool
@@ -489,7 +505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 869671986}
   - component: {fileID: 869671987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,6 +796,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle_BubblePop
       objectReference: {fileID: 0}
+    - target: {fileID: 5409436878667904556, guid: b339ee6fae6b5d548a589a61d8a77d00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1042,6 +1062,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3417712691615936731, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760527658318897485, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7153543931737018965, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       propertyPath: moveSpeed
       value: 5
@@ -1050,9 +1078,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8235302233767269869, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      propertyPath: projectileSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8925326343338142508, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925326343338142508, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9177262843761047959, guid: cf51fbf59dd48d34caa25e6a783d3b7a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1271,7 +1307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7cd22e8f81a4b46b114464608d77db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  maxHealth: 100
+  health: 20
 --- !u!1001 &2078338944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1493,7 +1530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9177262842825900562}
   - component: {fileID: 9177262842825900563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerSprite
   m_TagString: Player
   m_Icon: {fileID: 0}

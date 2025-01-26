@@ -11,11 +11,20 @@ public class PrimaryProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
-            Destroy(gameObject);
-    
+            //destroyBullet();
+            Invoke("destroyBullet", 0.1f);
+            
+
         }
     } 
+
+    void destroyBullet()
+    {
+        Destroy(gameObject);
+    }
+
 }

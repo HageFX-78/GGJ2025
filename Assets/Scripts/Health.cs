@@ -12,25 +12,43 @@ public class Health : MonoBehaviour, IDamageable, IHeal
     {
         health = health - healthDamage;
 
-        if (health <= 0)
+        if (gameObject.CompareTag("Player"))
         {
-            
+            Debug.Log("PLAYER HEALTH: " + health);
+            if(health <= 0 && !isDead)
+            {
+                isDead = true;
+                // 
+                //
+                //
+                //TRIGGER DEATH STUFF HERE
+                //
+                //
+                //
+            }
         }
 
-        if (gameObject.tag == "Enemy")
+        if (gameObject.CompareTag("Enemy"))
         {
             if (health <= 0 && !isDead)
             {
                 isDead = true;
+
+                gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                gameObject.transform.Find("Enemy Hitbox").GetComponent<CircleCollider2D>().enabled = false;
+                
                 gameObject.GetComponent<Enemy>().canCombine = false;
                 if (gameObject.GetComponent<Enemy>().enemySize > 2)
                 {
                     gameObject.GetComponent<EnemyEffect>().DisplayDeathSequence();
+                   
                     Invoke("InvokeDeath", 2.0f);
+
                 }
                 else
                 {
                     gameObject.GetComponent<EnemyEffect>().Explode(false);
+                   
                     Invoke("InvokeDeath", 1.0f);
                 }
                 
@@ -48,8 +66,7 @@ public class Health : MonoBehaviour, IDamageable, IHeal
     {
         health = maxHealth;
     }
-   /* public void SetHealth(float totalHealth)
-
+    
     public void InvokeDeath()
     {
         isDead = false;
@@ -57,10 +74,9 @@ public class Health : MonoBehaviour, IDamageable, IHeal
     }
 
     public void SetHealth(float totalHealth)
-
     {
         health = totalHealth;
-    }*/
+    }
 
     public void Heal(float healAmount) 
     {

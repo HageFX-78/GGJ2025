@@ -14,12 +14,15 @@ public class EnemyHit : MonoBehaviour
 
         bool isCombining = false;
 
-        if(collision.tag == "Player")
+        if(collision.CompareTag("Player"))
         {
+            collision.gameObject.GetComponent<IDamageable>()?.Damage(GetComponent<Enemy>().damage);
+            collision.gameObject.GetComponent<PlayerEffect>().HitEffect();
 
+            gameObject.SetActive(false);
         }
 
-        else if (collision.tag == "Enemy")
+        else if (collision.CompareTag("Enemy"))
         {
             Enemy collidedEnemy = collision.GetComponent<Enemy>();
 
@@ -32,18 +35,24 @@ public class EnemyHit : MonoBehaviour
             {
                 isCombining = true;
             }
-
-            if (isCombining && collidedEnemy.canCombine && !gameManager.bossModeActivated)
+            if (gameManager != null)
             {
-                ICombineable combineable = collision.GetComponent<ICombineable>();
-                if (combineable != null && collision.isActiveAndEnabled)
+                if (isCombining && collidedEnemy.canCombine && !gameManager.bossModeActivated)
                 {
-                    combineable.Combine(gameObject.GetComponent<Enemy>().enemySize);
-                    gameObject.SetActive(false);
-                }
-            
-            }
 
+                    ICombineable combineable = collision.GetComponent<ICombineable>();
+                    if (combineable != null && collision.isActiveAndEnabled)
+                    {
+                        combineable.Combine(gameObject.GetComponent<Enemy>().enemySize);
+                        gameObject.SetActive(false);
+                    }
+                }
+
+            }
+           
+            
         }
+
     }
 }
+

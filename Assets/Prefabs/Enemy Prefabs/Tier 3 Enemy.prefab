@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5733035757493914736, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5865224740218924766, guid: 4c1ac57f861e61a4d89e6017b89841df, type: 3}
       propertyPath: m_Sprite
       value: 
