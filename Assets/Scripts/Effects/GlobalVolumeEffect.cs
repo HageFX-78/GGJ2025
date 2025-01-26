@@ -38,4 +38,9 @@ public class GlobalVolumeEffect : MonoBehaviour
         DOTween.To(() => vignette.color.value, x => vignette.color.value = x, Color.black, 0.5f);
 
     }
+
+    public void SetVignetteBaseOnHp(float hp)
+    {
+        vignette.intensity.value = Mathf.Lerp(1.0f, 0f, hp);
+    }
 }

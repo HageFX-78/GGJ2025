@@ -10,7 +10,7 @@ public class PlayerInfoUI : MonoBehaviour
     [SerializeField] Slider _altFire;
 
     float altFireCD;
-    private void Start()
+    public void Start()
     {
         EventManager.ConnectEvent(GameEvents.AltFireSetCD, SetAltFireCD);
     }
@@ -31,7 +31,7 @@ public class PlayerInfoUI : MonoBehaviour
         altFireCD = (float)cd;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         EventManager.DisconnectEvent(GameEvents.AltFireSetCD, SetAltFireCD);
     }

@@ -5,6 +5,7 @@ public class PauseUI : MonoBehaviour
 {
     bool isPaused = false;
     [SerializeField] GameObject pauseCanvas;
+    [SerializeField] GameObject settingsCanvas;
 
     private void Update()
     {
@@ -24,6 +25,8 @@ public class PauseUI : MonoBehaviour
     public void ToggleSettings()
     { 
         //Toggle settings menu, if needed depending on what settings we have
+        settingsCanvas.SetActive(!settingsCanvas.activeSelf);
+
     }
 
     public void QuitGame()

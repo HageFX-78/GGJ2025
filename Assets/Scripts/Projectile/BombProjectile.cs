@@ -5,10 +5,12 @@ public class BombProjectile : MonoBehaviour
     [SerializeField] private float detonateTime = 2f;
     [SerializeField] private float detonateRadius = 3f;
     [SerializeField] private float damage = 1f;
+    [SerializeField] private EnemyEffect enemyEffect;//Effects script
 
     private void Start()
     {
         Detonate();
+        enemyEffect.DisplayDeathSequence();
     }
 
     private void Detonate()
