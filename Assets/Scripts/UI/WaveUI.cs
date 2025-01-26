@@ -10,6 +10,7 @@ public class WaveUI : MonoBehaviour
     {
         waveCountUI = GetComponent<TextMeshProUGUI>();
     }
+    
     void Start()
     {
         waveCountUI.text = "Current Wave: 0";

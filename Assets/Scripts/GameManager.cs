@@ -6,14 +6,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
     
     [Header("Current Stats")]
-    public int currentWave = 1;
+    public int currentWave = 0;
     public int bossKilled = 0;
     public bool bossModeActivated = false;
-
-
     public bool IS_GAMEOVER = false;
-   
 
+    [Header("Win Lose Panel")]
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject losePanel;
+    
     private PlayerController player;
 
     private void Awake()
@@ -26,6 +27,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        winPanel.SetActive(false);
+        losePanel.SetActive(false);
     }
 
     private void Start()
@@ -47,12 +51,14 @@ public class GameManager : MonoBehaviour
 
     private void HandleOnWinGame()
     {
-        
+        IS_GAMEOVER = true;
+        winPanel.SetActive(true);
     }
 
     private void HandleOnLoseGame()
     {
-        
+        IS_GAMEOVER = true;
+        losePanel.SetActive(true);
     }
 
     private void HandleOnBossSpawn()
