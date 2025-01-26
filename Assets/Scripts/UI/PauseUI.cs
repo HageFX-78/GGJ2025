@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 {
@@ -31,6 +32,6 @@ public class PauseUI : MonoBehaviour
 
     public void QuitGame()
     { 
-        //return to main menu (wait for scenes to be finalize)
+        SceneManager.LoadScene(0);
     }
 }
