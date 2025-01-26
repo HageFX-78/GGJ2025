@@ -15,14 +15,13 @@ public class PrimaryProjectile : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
-            //destroyBullet();
-            Invoke("destroyBullet", 0.1f);
-            
-
+            other.gameObject.GetComponent<EnemyEffect>()?.DisplayHitParticles(other.transform.position - transform.position);
+            Invoke(nameof(DestroyBullet), 0.1f);
+            EventManager.FireEvent(GameEvents.IncreasePopCount);
         }
     } 
 
-    void destroyBullet()
+    void DestroyBullet()
     {
         Destroy(gameObject);
     }

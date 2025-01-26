@@ -75,6 +75,7 @@ public class EnemySpawner : MonoBehaviour
             Spawn();
             spawnTimer = spawnRate;
             gameManager.currentWave++;
+            EventManager.FireEvent(GameEvents.OnWaveUpdate, gameManager.currentWave);
         }
         else
         {

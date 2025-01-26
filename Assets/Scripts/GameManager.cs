@@ -28,13 +28,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
         EventManager.ConnectEvent(GameEvents.OnWinGame, HandleOnWinGame);
         EventManager.ConnectEvent(GameEvents.OnLoseGame, HandleOnLoseGame);
         EventManager.ConnectEvent(GameEvents.OnBossSpawn, HandleOnBossSpawn);
         EventManager.ConnectEvent(GameEvents.OnBossDefeated, HandleOnBossDefeat);
-
     }
 
     private void OnDisable()
@@ -58,7 +57,6 @@ public class GameManager : MonoBehaviour
 
     private void HandleOnBossSpawn()
     {
-        //TODO: SpawnManager Stop Spawn
         bossModeActivated = true;
         Debug.Log("BOSS MODE ENABLED, NO MORE SPAWNING");
     }
@@ -69,6 +67,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("BOSS MODE DISABLED, RESUME SPAWNING");
 
         bossKilled++;
-        //TODO: SpawnManager Continue Spawn
     }
 }

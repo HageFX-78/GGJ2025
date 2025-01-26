@@ -11,9 +11,9 @@ public class Health : MonoBehaviour, IDamageable, IHeal
     public void Damage(float healthDamage)
     {
         health = health - healthDamage;
-
         if (gameObject.CompareTag("Player"))
         {
+            EventManager.FireEvent(GameEvents.OnPlayerDamaged, health);
             Debug.Log("PLAYER HEALTH: " + health);
             if(health <= 0 && !isDead)
             {
